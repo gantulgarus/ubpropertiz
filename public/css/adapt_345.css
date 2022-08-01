@@ -1,0 +1,19 @@
+@charset "UTF-8";
+/* --- Шрифты --- */
+/* --- Цвета --- */
+/* --- Адаптив 345px --- */
+@media screen and (max-width: 345px) {
+  .sec_review .slick-prev {
+    bottom: 10px;
+  }
+
+  .slick_def .slick-next {
+    bottom: 10px;
+  }
+
+  .sec_first_obj .gall_wrap .sold_wrap {
+    bottom: 120px;
+    right: 120px;
+  }
+}
+/* --- END.Адаптив 345px --- */

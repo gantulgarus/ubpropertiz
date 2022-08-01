@@ -1,0 +1,106 @@
+@charset "UTF-8";
+/* --- Шрифты --- */
+/* --- Цвета --- */
+/* --- Адаптив 1350px --- */
+@media screen and (max-width: 1350px) {
+  .h_first_sec {
+    background-size: auto;
+  }
+
+  .h_first_sec.sec_estate_first,
+.sec_algoritm,
+.sec_first_big,
+.sec_first_big {
+    width: 1240px;
+  }
+
+  .first_overlay {
+    width: 1170px;
+  }
+
+  .sec_select_city .slick-prev,
+.review_slider .slick-prev {
+    left: -15px;
+  }
+
+  .sec_select_city .slick-next,
+.review_slider .slick-next {
+    right: -15px;
+  }
+
+  .slick_def .slick-prev,
+.slick_def .slick-next,
+.slick_def .slick-next::before,
+.slick_def .slick-prev::before {
+    height: 30px;
+    width: 15px;
+  }
+
+  .slick_def .slick-next::before {
+    background-position-x: -15px;
+  }
+
+  .slick_def .slick-prev:hover::before {
+    background-position-x: -15px;
+  }
+
+  .sec_review .slick-slide.slick-active .rev_one {
+    padding-right: 0;
+  }
+
+  .sec_review .rev_one .text {
+    max-width: unset;
+  }
+
+  .first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(1) .icon_title_text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(2) .icon_title_text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(3) .icon_title_text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(4) .icon_title_text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(5) .icon_title_text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(6) .icon_title_text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(1) .icon_title_text .text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(2) .icon_title_text .text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(3) .icon_title_text .text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(4) .icon_title_text .text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(5) .icon_title_text .text,
+.first_overlay_construction .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(6) .icon_title_text .text {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: unset;
+  }
+
+  .first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(1) .icon_title_text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(2) .icon_title_text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(3) .icon_title_text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(4) .icon_title_text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(5) .icon_title_text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(6) .icon_title_text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(1) .icon_title_text .text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(2) .icon_title_text .text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(3) .icon_title_text .text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(4) .icon_title_text .text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(5) .icon_title_text .text,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(6) .icon_title_text .text {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: unset;
+  }
+
+  .first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(1) .icon_title_text img,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(2) .icon_title_text img,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(3) .icon_title_text img,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(4) .icon_title_text img,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(5) .icon_title_text img,
+.first_overlay_insurance .fov_content_wrap .row .col-md-6.col-lg-4:nth-child(6) .icon_title_text img {
+    margin: 0;
+  }
+}
+/* --- END.Адаптив 1350px --- */

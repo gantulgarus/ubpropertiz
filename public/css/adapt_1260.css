@@ -1,0 +1,128 @@
+@charset "UTF-8";
+/* --- Шрифты --- */
+/* --- Цвета --- */
+/* --- Адаптив 1200px --- */
+@media screen and (max-width: 1260px) {
+  .container {
+    max-width: 1140px;
+  }
+
+  .h_first_sec.sec_estate_first,
+.sec_algoritm,
+.sec_first_big,
+.sec_first_big {
+    width: 1140px;
+  }
+
+  .h_first_sec {
+    background-size: cover;
+  }
+
+  .h_first_sec.sec_estate_first,
+.sec_algoritm,
+.sec_first_big,
+.sec_first_big {
+    width: auto;
+  }
+
+  .sec_first_obj .gall_wrap .see_all {
+    right: 4%;
+  }
+  .sec_first_obj .gall_wrap a:nth-child(1) .gall_img {
+    width: 360px;
+    height: 348px;
+  }
+
+  .slick_def .slick-next {
+    right: 10%;
+    bottom: -10px;
+    top: unset;
+    z-index: 9;
+  }
+
+  .slick_def .slick-prev {
+    left: 10%;
+    bottom: -10px;
+    top: unset;
+    z-index: 9;
+  }
+
+  .slick_def.cover_city_slick .slick-next {
+    right: 10%;
+    bottom: -30px;
+    top: unset;
+    z-index: 9;
+  }
+
+  .slick_def.cover_city_slick .slick-prev {
+    left: 10%;
+    bottom: -30px;
+    top: unset;
+    z-index: 9;
+  }
+
+  .slick_def .slick-next {
+    right: 10%;
+    bottom: -10px;
+    top: unset;
+    z-index: 9;
+  }
+
+  .slick_def .slick-prev {
+    left: 10%;
+    bottom: -10px;
+    top: unset;
+    z-index: 9;
+  }
+
+  .slick_def .slick-prev,
+.slick_def .slick-next,
+.slick_def .slick-next::before,
+.slick_def .slick-prev::before {
+    height: 43px;
+    width: 22px;
+  }
+
+  .slick_def .slick-next::before {
+    background-position-x: -22px;
+  }
+
+  .slick_def .slick-prev:hover::before {
+    background-position-x: 0px;
+  }
+
+  .sec_algoritm .algoritm .a_item.a_item_down {
+    bottom: -245px;
+  }
+
+  .sec_newslatter .newslatter .text {
+    margin-left: 30px;
+  }
+
+  .sec_footer .f_contacts_wrap {
+    margin-left: 55px;
+  }
+
+  .sec_prim_vng .row .col-md-4:nth-child(2) .icon_title_text {
+    padding-right: 23px;
+    padding-left: 19px;
+  }
+
+  .sec_history_city .gall_wrap.gall_wrap_city a:nth-child(1) .gall_img,
+.sec_history_city .gall_wrap.gall_wrap_city a:nth-child(2) .gall_img,
+.sec_history_city .gall_wrap.gall_wrap_city a:nth-child(3) .gall_img,
+.sec_history_city .gall_wrap.gall_wrap_city a:nth-child(4) .gall_img,
+.sec_history_city .gall_wrap.gall_wrap_city a:nth-child(5) .gall_img {
+    max-width: 225px;
+  }
+
+  .sec_history_city .gall_wrap.gall_wrap_city .see_all {
+    bottom: 12%;
+  }
+
+  .gall_wrap a:nth-child(1) .gall_img {
+    width: 347px;
+    height: 340px;
+  }
+}
+/* --- END.Адаптив 1200px --- */

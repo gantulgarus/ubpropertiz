@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/* --- Шрифты --- */
+/* --- Цвета --- */
+/* --- Адаптив 1440px --- */
+@media screen and (max-width: 1440px) {
+  /*	.h_first_sec {
+  		background-size: cover;
+  	}*/
+  .h_first_sec {
+    background-size: 1340px;
+  }
+
+  .h_first_sec.sec_estate_first,
+.sec_algoritm,
+.sec_first_big,
+.sec_first_big {
+    width: 1340px;
+  }
+
+  /*	.h_first_sec.sec_estate_first,
+  	.sec_algoritm,
+  	.sec_first_big,
+  	.sec_first_big  {
+  		width: auto;
+  	}*/
+  .sec_c_contacts .map {
+    width: 49vw;
+  }
+
+  /*	.slick_def.cover_city_slick .slick-next {
+  		right: 10%;
+  		bottom: -30px;
+  		top: unset;
+  		z-index: 9;
+  	}
+
+  	.slick_def.cover_city_slick .slick-prev {
+  		left: 10%;
+  		bottom: -30px;
+  		top: unset;
+  		z-index: 9;
+  	}
+
+  	.slick_def .slick-next {
+  		right: 10%;
+  		bottom: -10px;
+  		top: unset;
+  		z-index: 9;
+  	}
+
+  	.slick_def .slick-prev {
+  		left: 10%;
+  		bottom: -10px;
+  		top: unset;
+  		z-index: 9;
+  	}*/
+}
+/* --- END.Адаптив 1440px --- */

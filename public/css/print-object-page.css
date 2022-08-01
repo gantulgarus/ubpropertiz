@@ -1,0 +1,93 @@
+@media print {
+  section.sec_black.sec_black_call,
+.sec_maybe_interest,
+.sec_review,
+.sec_newslatter,
+.sec_footer,
+.sec_copyright,
+.languages,
+.menu_wrap,
+.contacts_links .fb_link,
+.contacts_links .inst_link,
+.sec_info_obj .info_head .tech_info .ti_left .til_print_id .print,
+.header_content .call_button,
+.gall_wrap .see_all,
+.price_order_wrap .main_button,
+.gall_wrap a:nth-child(6) .gall_img,
+.gall_wrap a:nth-child(7) .gall_img,
+.sec_info_obj .info_head .tech_info .ti_left .sold_wrap .sold {
+    display: none !important;
+  }
+
+  .logo img {
+    height: 84px !important;
+    width: 54px !important;
+  }
+
+  .header_content .contacts_links a {
+    text-decoration: none !important;
+  }
+
+  .sec_info_obj .info_head .specification {
+    display: block !important;
+  }
+
+  .sec_info_obj .info_head .specification .spac_one {
+    display: inline-block !important;
+  }
+
+  header {
+    padding-top: 0 !important;
+  }
+
+  .sec_info_obj .spec_info_wrap:lst-child {
+    margin-bottom: 0 !important;
+  }
+
+  .contacts_links .email_link span {
+    display: inline !important;
+    padding-left: 5px;
+  }
+
+  .sec_info_obj .info_head .price_order_wrap .price {
+    position: absolute;
+    right: 3.6em;
+    bottom: -1.5em;
+  }
+
+  .sec_info_obj .info_head .price_order_wrap {
+    display: block;
+    position: relative;
+    margin-bottom: 0;
+  }
+
+  .sec_info_obj .info_head .tech_info .ti_right .qr img {
+    width: 120px;
+    height: 120px;
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .sec_info_obj .spec_info_wrap .map_row .right_wrap_line .map_wrap {
+    /*overflow-y: hidden !important;
+    max-height: 170px !important;*/
+  }
+
+  .sec_info_obj .spec_info_wrap .map_row .right_wrap_line {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: none;
+  }
+
+  .sec_info_obj .container .spec_info_wrap:last-child {
+    margin-bottom: 0;
+  }
+
+  .contacts_links .site_name {
+    display: inline !important;
+  }
+
+  .contacts_links .site_name .fa {
+    margin-right: 5px;
+  }
+}
