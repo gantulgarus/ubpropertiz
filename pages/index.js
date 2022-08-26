@@ -1,4 +1,3 @@
-import Script from "next/script";
 import SliderCity from "components/SliderCity";
 import PropertiesGrid from "components/property/properties-grid";
 
@@ -300,14 +299,11 @@ export default function Home({ properties }) {
       {/* END.First screen */}
 
       {/* Best offers */}
-
       {/* <pre>{JSON.stringify(properties, null, 2)}</pre> */}
       <PropertiesGrid properties={properties} />
-
       {/* END.Best offers */}
 
       {/* Choose your desired city */}
-      {/* <SliderCity /> */}
       <div className="sec_def sec_select_city">
         <div className="container">
           <div className="row">

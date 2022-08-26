@@ -50,13 +50,13 @@ const Header = () => {
                   </a>
                   <a href="#" className="site_name">
                     <i className="fa  fa-globe" />
-                    www.Avados-inmo.es
+                    www.ubpropertiz.mn
                   </a>
                 </div>
                 <div className="menu_wrap">
                   <ul className="menu">
                     <li>
-                      <a href="real-estate.html">Real estate</a>
+                      <a href="real-estate.html">Үл хөдлөх</a>
                     </li>
                     <li>
                       <a href="insurance.html">Insurance</a>
@@ -75,7 +75,7 @@ const Header = () => {
                     </li>
                     <li>
                       <Link href="/contacts">
-                      <a href="">Холбоо барих</a>
+                        <a href="">Холбоо барих</a>
                       </Link>
                     </li>
                   </ul>

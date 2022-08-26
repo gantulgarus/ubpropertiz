@@ -1518,7 +1518,7 @@
     "speedometer" "~1.0.0"
     "through2" "~2.0.3"
 
-"prop-types@^15.8.1":
+"prop-types@^15.6.0", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -1542,6 +1542,13 @@
   "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
   "version" "1.2.3"
 
+"react-currency-format@^1.1.0":
+  "integrity" "sha512-WWrEOIp/3GbDSk1wlhFXaBc7IHGT3IwL306DHbGP3GVr4YFa0iS5hHPbKjHa0haruGL4Ly+WG4/5jBHpUtgqZg=="
+  "resolved" "https://registry.npmjs.org/react-currency-format/-/react-currency-format-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "prop-types" "^15.6.0"
+
 "react-dom@18.2.0":
   "integrity" "sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
@@ -1554,6 +1561,11 @@
   "integrity" "sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
+
+"react-simple-image-viewer@^1.2.2":
+  "integrity" "sha512-Vk9p6Glm7uE4cSEBGkqZPGC3qoZcAwd48nq5/JN13NKd9rUrUIWZWFEmRzO+FVwl6c0UdjSDkthGoaoiYeWVjg=="
+  "resolved" "https://registry.npmjs.org/react-simple-image-viewer/-/react-simple-image-viewer-1.2.2.tgz"
+  "version" "1.2.2"
 
 "react-slick@^0.16.0":
   "integrity" "sha512-QSN0w2f5yiyIwGwlccDGC0veke3NkigHuHycq+qr0GWyrQ7BWIvGPS6J8nOt2LLrwPU816Ib8zgqsH8MTBhWCA=="

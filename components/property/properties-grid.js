@@ -14,7 +14,7 @@ const PropertiesGrid = ({ properties }) => {
 
         <div className="row">
           {properties.map((property) => (
-            <PropertyItem property={property} />
+            <PropertyItem key={property._id} property={property} />
           ))}
         </div>
         <div className="all_card">
