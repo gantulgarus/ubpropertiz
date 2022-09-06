@@ -16,7 +16,7 @@ import "../public/css/adapt_576.css";
 import "../public/css/adapt_345.css";
 
 import { SWRConfig } from "swr";
-import Layout from "components/layout/layout";
+import Layout from "components/layout/Layout";
 
 const fetcher = async (url) => {
   const res = await fetch(url);
