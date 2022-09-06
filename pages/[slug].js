@@ -1,11 +1,11 @@
 import { useState, useCallback } from "react";
 import Layout from "components/layout/Layout";
-import { getPropertyBySlug } from "lib/api";
+import { getPropertyBySlug, getAllProperties } from "lib/api";
 
 import CurrencyFormat from "react-currency-format";
 import ImageViewer from "react-simple-image-viewer";
 
-export default ({ property }) => {
+const PropertyDetailPage = ({ property }) => {
   const [showAllImage, setShowAllImage] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
@@ -37,30 +37,31 @@ export default ({ property }) => {
                   className="popup-gallery slick_def"
                   id="gall_wrap_construction"
                 >
-                  {property.imagesGallery.map((image, index) => (
-                    <a
-                      className={
-                        index < 4 || showAllImage
-                          ? "gall_link  visib"
-                          : "gall_link"
-                      }
-                      onClick={() => openImageViewer(index)}
-                    >
-                      <img
-                        className="gall_img"
-                        src={image.src}
+                  {property.imagesGallery != null &&
+                    property.imagesGallery.map((image, index) => (
+                      <a
+                        className={
+                          index < 4 || showAllImage
+                            ? "gall_link  visib"
+                            : "gall_link"
+                        }
+                        onClick={() => openImageViewer(index)}
                         key={index}
-                        alt=""
-                      />
-                      <div className="overlay">
-                        <div className="o_border">
-                          <div className="big">
-                            <i className="fa fa-search-plus" />
+                      >
+                        <img
+                          className="gall_img"
+                          src={image.src}
+                          alt="gall_img"
+                        />
+                        <div className="overlay">
+                          <div className="o_border">
+                            <div className="big">
+                              <i className="fa fa-search-plus" />
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </a>
-                  ))}
+                      </a>
+                    ))}
                   {isViewerOpen && (
                     <ImageViewer
                       src={property.imagesGallery.map((img) => img.src)}
@@ -82,7 +83,7 @@ export default ({ property }) => {
                   id="see_all_construction"
                   onClick={toggleClass}
                 >
-                  All photos ({property.imagesGallery.length})
+                  Бүх зураг
                 </div>
               </div>
             </div>
@@ -306,7 +307,7 @@ export default ({ property }) => {
   );
 };
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const property = await getPropertyBySlug(params.slug);
   return {
     props: {
@@ -314,3 +315,18 @@ export const getServerSideProps = async ({ params }) => {
     },
   };
 };
+
+export const getStaticPaths = async () => {
+  const properties = await getAllProperties();
+  const data = properties.map((property) => ({
+    params: {
+      slug: property.slug,
+    },
+  }));
+  return {
+    paths: data,
+    fallback: false,
+  };
+};
+
+export default PropertyDetailPage;

@@ -16,18 +16,18 @@
   // }
 
   // modal window "Order a call" - Hat
-  // $(window).on('load', function(){
-  // 	$('.popup-modal').magnificPopup({
-  // 		type: 'inline',
-  // 		preloader: false,
-  // 		// focus: '#username',
-  // 		modal: true
-  // 	});
-  // 	$(document).on('click', '.popup-modal-dismiss', function (e) {
-  // 		e.preventDefault();
-  // 		$.magnificPopup.close();
-  // 	});
-  // });
+  $(window).on("load", function () {
+    $(".popup-modal").magnificPopup({
+      type: "inline",
+      preloader: false,
+      // focus: '#username',
+      modal: true,
+    });
+    $(document).on("click", ".popup-modal-dismiss", function (e) {
+      e.preventDefault();
+      $.magnificPopup.close();
+    });
+  });
   // END.modal window "Order a call" - Hat
 
   //slider for "Choose your desired city" on the main
@@ -99,11 +99,11 @@
   //END.review slider
 
   // adaptive menu
-  $(".adpt_icon").click(function (e) {
-    $(this).toggleClass("open");
-    $(".header_content").toggleClass("header_content_adapt");
-    $("body").toggleClass("body_adapt_open");
-  });
+  // $(".adpt_icon").click(function (e) {
+  //   $(this).toggleClass("open");
+  //   $(".header_content").toggleClass("header_content_adapt");
+  //   $("body").toggleClass("body_adapt_open");
+  // });
   // END.adaptive menu
 
   // adaptive filter
@@ -163,32 +163,32 @@
     });
   }
 
-  if (document.getElementById("gall_wrap_construction")) {
-    // Construction: showing only the first 5 images
-    function gallFirstFive() {
-      var list = document.getElementById("gall_wrap_construction");
-      var child = list.childNodes;
-      var number = [];
-      for (let i = 0; i < child.length; i++) {
-        if (child[i].className == "gall_link") {
-          child[i].classList.add("visib");
-          number.push(child[i]);
-          if (number.length == 7) {
-            break;
-          }
-        }
-      }
-    }
-    gallFirstFive();
-    // END.Construction: showing only the first 5 images
+  // if (document.getElementById("gall_wrap_construction")) {
+  //   // Construction: showing only the first 5 images
+  //   function gallFirstFive() {
+  //     var list = document.getElementById("gall_wrap_construction");
+  //     var child = list.childNodes;
+  //     var number = [];
+  //     for (let i = 0; i < child.length; i++) {
+  //       if (child[i].className == "gall_link") {
+  //         child[i].classList.add("visib");
+  //         number.push(child[i]);
+  //         if (number.length == 7) {
+  //           break;
+  //         }
+  //       }
+  //     }
+  //   }
+  //   gallFirstFive();
+  //   // END.Construction: showing only the first 5 images
 
-    // Construction: by clicking on the button we show all images
-    $("#see_all_construction").click(function (e) {
-      $("#gall_wrap_construction a").addClass("visib");
-      $(this).addClass("novisible");
-    });
-    // END.Construction: by clicking on the button we show all images
-  }
+  //   // Construction: by clicking on the button we show all images
+  //   $("#see_all_construction").click(function (e) {
+  //     $("#gall_wrap_construction a").addClass("visib");
+  //     $(this).addClass("novisible");
+  //   });
+  //   // END.Construction: by clicking on the button we show all images
+  // }
 
   //END.Construction - gallery in "our projects"
 

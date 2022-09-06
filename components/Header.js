@@ -1,9 +1,29 @@
+import { useState } from "react";
 import Link from "next/link";
 
+import ModalCall from "./modal-call";
+
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  function openModal() {
+    setShowModal(true);
+  }
+
+  function closeModal() {
+    setShowModal(false);
+  }
+
+  const toggleClass = () => {
+    setIsMenuOpen(!isMenuOpen);
+    document.querySelector("body").classList.toggle("body_adapt_open");
+  };
+
   return (
     <>
       {/* Header */}
+      {showModal && <ModalCall closeModal={closeModal} />}
       <div className="header_block" />
       <header className="header">
         <div className="container">
@@ -12,13 +32,19 @@ const Header = () => {
               <div className="logo">
                 <Link href="/">
                   <a href="">
-                    <img src="logo.jpg" alt="logo" />
+                    <img src="logo.png" alt="logo" />
                   </a>
                 </Link>
               </div>
             </div>
             <div className="col-9 col-sm-10 col-lg-11">
-              <div className="header_content">
+              <div
+                className={
+                  isMenuOpen
+                    ? "header_content header_content_adapt"
+                    : "header_content"
+                }
+              >
                 <div className="languages">
                   <a href="#" className="current">
                     <img src="img/ru.png" alt="ru" />
@@ -36,9 +62,9 @@ const Header = () => {
                     className="email_link popup-modal"
                   >
                     <i className="fa fa-envelope-o" />{" "}
-                    <span>info@ubpropertiz.com</span>
+                    <span>info@ubpropertiz.mn</span>
                   </a>
-                  <a className="phone_link" href="tel:+34674488970">
+                  <a className="phone_link" href="tel:+97695954679">
                     <i className="fa fa-whatsapp" />{" "}
                     <span> (+976) 9595-4679</span>
                   </a>
@@ -56,10 +82,9 @@ const Header = () => {
                 <div className="menu_wrap">
                   <ul className="menu">
                     <li>
-                      <a href="real-estate.html">Үл хөдлөх</a>
-                    </li>
-                    <li>
-                      <a href="insurance.html">Insurance</a>
+                      <Link href="/realestate">
+                        <a href="">Үл хөдлөх</a>
+                      </Link>
                     </li>
                     <li>
                       <a href="construction.html">Building</a>
@@ -71,7 +96,9 @@ const Header = () => {
                       <a href="blog.html">Мэдээ</a>
                     </li>
                     <li>
-                      <a href="o-nas.html">Бидний тухай</a>
+                      <Link href="/aboutus">
+                        <a href="">Бидний тухай</a>
+                      </Link>
                     </li>
                     <li>
                       <Link href="/contacts">
@@ -79,13 +106,20 @@ const Header = () => {
                       </Link>
                     </li>
                   </ul>
-                  <div className="adpt_icon">
+                  <div
+                    className={isMenuOpen ? "adpt_icon open" : "adpt_icon"}
+                    onClick={toggleClass}
+                  >
                     <i className="fa fa-bars" />
                     <i className="fa fa-close" />
                   </div>
                 </div>
                 <div className="call_button">
-                  <a href="#modal_call" className="ghost_button popup-modal">
+                  <a
+                    href="#modal_call"
+                    className="ghost_button popup-modal"
+                    onClick={openModal}
+                  >
                     <i className="fa fa-phone" />
                     Залгах
                   </a>
@@ -93,7 +127,7 @@ const Header = () => {
                 <div className="call_button email_button">
                   <a href="#modal_email" className="ghost_button popup-modal">
                     <i className="fa fa-envelope-o" />
-                    Write to us
+                    Мэйл бичих
                   </a>
                 </div>
               </div>

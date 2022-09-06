@@ -2,6 +2,8 @@ import Link from "next/link";
 import CurrencyFormat from "react-currency-format";
 import css from "./property.module.css";
 
+import { urlFor } from "lib/api";
+
 const PropertyItem = ({ property }) => {
   return (
     <div className="col-md-6 col-lg-4 col-xl-3">
@@ -13,7 +15,13 @@ const PropertyItem = ({ property }) => {
           </div>
           <Link href={`/${property.slug}`}>
             <a>
-              <img className={css.card_img} src={property.featured_image} />
+              {/* <img className={css.card_img} src={property.featured_image} /> */}
+              <img
+                src={urlFor(property.featured_image)
+                  .width(280)
+                  .height(207)
+                  .url()}
+              />
             </a>
           </Link>
           <div className="price">

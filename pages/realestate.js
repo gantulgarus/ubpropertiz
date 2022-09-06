@@ -1,31 +1,42 @@
-import Link from "next/link";
-import SliderCity from "components/SliderCity";
 import PropertiesGrid from "components/property/properties-grid";
 
 import { getAllProperties } from "lib/api";
-import { useProperties } from "hooks/useProperties";
 
-const PAGE_LIMIT = 2;
+import { useState } from "react";
+import useSWR from "swr";
 
-export default function Home({ properties }) {
-  const { data, isLoading, error } = useProperties(properties);
-  console.log("homepage data===", properties);
+const PAGE_LIMIT = 3;
+
+const RealState = () => {
+  const [pageIndex, setPageIndex] = useState(0);
+
+  //   const { data, size, setSize } = useSWRInfinite(
+  //     (pageIndex) => `/api/properties?page=${pageIndex}&limit=${PAGE_LIMIT}`
+  //   );
+
+  //The API URL includes the page index, which is a React state.
+  const { data } = useSWR(
+    `/api/properties?page=${pageIndex}&limit=${PAGE_LIMIT}`
+  );
 
   return (
     <>
-      {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       {/* First screen */}
-      <div className="h_first_sec home_first_sec">
+      <div className="h_first_sec sec_estate_first">
         <div className="container">
-          <div className="first_content">
-            <div className="first_title">
-              Үл хөдлөх хөрөнгө худалдаа, түрээс
+          <div className="filter_adapt">
+            <div className="filter_reset" id="reset_button_id_adapt">
+              Reset
             </div>
+            <div className="filter_icon" id="filter_icon_id">
+              <span>Filters</span>
+              <span className="icon_f" />
+              {/* <img src="img/filter.png" alt=""> */}
+            </div>
+          </div>
+          <div className="first_content">
             <form className="h_search_form">
               <div className="row_one">
-                <div className="arrow_info">
-                  Үл хөдлөх хөрөнгийн төрлийг сонгоно уу
-                </div>
                 <label className="checkbox">
                   <input type="checkbox" />
                   <span className="checkbox_content">
@@ -48,7 +59,7 @@ export default function Home({ properties }) {
                         </g>
                       </svg>
                     </span>
-                    <span className="checkbox_text">Хаус</span>
+                    <span className="checkbox_text">House</span>
                   </span>
                 </label>
                 <label className="checkbox">
@@ -115,7 +126,7 @@ export default function Home({ properties }) {
                         </g>
                       </svg>
                     </span>
-                    <span className="checkbox_text">Байр</span>
+                    <span className="checkbox_text">Flat</span>
                   </span>
                 </label>
                 <label className="checkbox">
@@ -146,7 +157,7 @@ export default function Home({ properties }) {
                         </g>
                       </svg>
                     </span>
-                    <span className="checkbox_text">Вилла</span>
+                    <span className="checkbox_text">Villa</span>
                   </span>
                 </label>
                 <label className="checkbox">
@@ -213,7 +224,7 @@ export default function Home({ properties }) {
                         </g>
                       </svg>
                     </span>
-                    <span className="checkbox_text">Оффис</span>
+                    <span className="checkbox_text">Office</span>
                   </span>
                 </label>
                 <label className="checkbox">
@@ -269,36 +280,147 @@ export default function Home({ properties }) {
                         </g>
                       </svg>
                     </span>
-                    <span className="checkbox_text">Граж</span>
+                    <span className="checkbox_text">Garage</span>
                   </span>
                 </label>
               </div>
               <div className="row_two">
                 <div className="select_wrap">
-                  <label>Төлөв</label>
+                  <label>Status</label>
                   <div className="form_select_wrap">
                     <select name="status" id="search_status">
-                      <option value="For sale">Худалдах</option>
-                      <option value="Sold">Зарагдсан</option>
+                      <option value="For sale">For sale</option>
+                      <option value="Sold">Sold</option>
                     </select>
                   </div>
                 </div>
                 <div className="select_wrap select_wrap_location">
-                  <label>Байршил</label>
+                  <label>Location</label>
                   <div className="form_select_wrap">
                     <select name="status">
-                      <option value="Все местоположения">Бүх байршил</option>
+                      <option value="All locations">All locations</option>
                       <option value="Spain">Spain</option>
                     </select>
                   </div>
                 </div>
                 <div className="text_wrap">
-                  <label>Код</label>
+                  <label>Property ID</label>
                   <input type="text" placeholder="ID-1713" />
                 </div>
-                <button type="submit" className="main_button">
-                  Хайх
-                </button>
+              </div>
+              <div className="row_three">
+                <div className="number_wrap">
+                  <div className="name">Bedrooms</div>
+                  <div className="number-block">
+                    <input
+                      className="num"
+                      type="number"
+                      id="bedrooms_number"
+                      defaultValue={1}
+                    />
+                  </div>
+                </div>
+                <div className="number_wrap">
+                  <div className="name">Bathrooms</div>
+                  <div className="number-block">
+                    <input
+                      className="num"
+                      type="number"
+                      id="bath_number"
+                      defaultValue={1}
+                    />
+                  </div>
+                </div>
+                <div className="checkbox_wrap">
+                  <label className="checkbox_my">
+                    <input type="checkbox" defaultValue="Sea view?" />
+                    <span className="checkmark" />
+                    Sea view?
+                  </label>
+                </div>
+                <div className="all_param_wrap">
+                  <div className="name" id="all_param_link">
+                    All parameters <i className="fa fa-angle-down" />
+                  </div>
+                </div>
+              </div>
+              <div className="row_four" id="row_four_id">
+                <div className="number_wrap">
+                  <div className="name">Number of neighbors</div>
+                  <div className="number-block">
+                    <input
+                      className="num"
+                      type="number"
+                      id="number_three"
+                      defaultValue={1}
+                    />
+                  </div>
+                </div>
+                <div className="number_wrap">
+                  <div className="name">Number of stairs</div>
+                  <div className="number-block">
+                    <input
+                      className="num"
+                      type="number"
+                      id="number_four"
+                      defaultValue={1}
+                    />
+                  </div>
+                </div>
+                <div className="checkbox_wrap">
+                  <label className="checkbox_my">
+                    <input type="checkbox" defaultValue="Sea view?" />
+                    <span className="checkmark" />
+                    Have a garden?
+                  </label>
+                </div>
+              </div>
+              <div className="row_five">
+                <div className="range_wrap">
+                  <div className="name">
+                    Area: <span id="area-result-polzunok" /> m2
+                  </div>
+                  <div id="area-polzunok"></div>
+                  <input
+                    type="hidden"
+                    name="area-send-result-polzunok"
+                    id="area-send-result-polzunok"
+                  />
+                </div>
+                <div className="range_wrap">
+                  <div className="name">
+                    Land: <span id="ground-result-polzunok" /> m2
+                  </div>
+                  <div id="ground-polzunok"></div>
+                  <input
+                    type="hidden"
+                    name="ground-send-result-polzunok"
+                    id="ground-send-result-polzunok"
+                  />
+                </div>
+                <div className="range_wrap">
+                  <div className="name">
+                    Price: <span id="price-result-polzunok" /> EUR
+                  </div>
+                  <div id="price-polzunok"></div>
+                  <input
+                    type="hidden"
+                    name="price-send-result-polzunok"
+                    id="price-send-result-polzunok"
+                  />
+                </div>
+              </div>
+              <div className="row_six">
+                <div className="button_wrap">
+                  <button type="submit" className="main_button long">
+                    Search
+                  </button>
+                </div>
+                <div className="reset_wrap">
+                  <div className="name" id="reset_button_id">
+                    Reset Filters
+                  </div>
+                </div>
               </div>
             </form>
           </div>
@@ -306,41 +428,123 @@ export default function Home({ properties }) {
       </div>
       {/* END.First screen */}
 
-      <div className="sec_def home_sec_best_choice">
+      {/* Best offers */}
+      <div className="sec_estate_result">
         <div className="container">
           <div className="row">
-            <div className="col-md-12">
-              <div className="sec_uptitle">Танд санал болгох</div>
-              <div className="sec_title">Онцлох үл хөдлөх хөрөнгө</div>
+            <div className="col-md-6">
+              <div className="sec_result_wrap">
+                <div className="sec_title">Searching results</div>
+                <div className="sec_result">(45)</div>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="sec_result_sort">
+                <div className="form_select_wrap">
+                  <select name="status" id="search_sort">
+                    <option value="Sort by">Sort by</option>
+                    <option value="Price">Price</option>
+                    <option value="Rooms">Rooms</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
           <PropertiesGrid properties={data} />
-          <div className="all_card">
-            <Link href="realestate">
-              <a href="#" className="ghost_button long">
-                Бүгдийг харах
-              </a>
-            </Link>
+          <div className="col-md-12">
+            <nav className="pagination">
+              <div className="pag_wrap">
+                <a
+                  className="nav-prev"
+                  onClick={() => setPageIndex(pageIndex - 1)}
+                />
+                <a href="#" className="current">
+                  {pageIndex + 1}
+                </a>
+                {/* <a href="#">2</a>
+                <a href="#">3</a> */}
+                <a
+                  href="#"
+                  className="nav-next"
+                  onClick={() => setPageIndex(pageIndex + 1)}
+                />
+              </div>
+            </nav>
           </div>
         </div>
       </div>
-      <div className="sec_def sec_select_city">
+      {/* END.Best offers */}
+
+      <br />
+      <br />
+      <br />
+
+      {/* Our partners */}
+      <div className="sec_partner">
         <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div className="sec_uptitle">Тодорхой хот хайж байна уу?</div>
-              <div className="sec_title">Хүссэн хотоо сонгоно уу</div>
+          <div className="row align-items-center">
+            <div className="col-md-12 col-lg-5">
+              <div className="sec_title">Хамтран ажиллагч байгууллагууд</div>
+            </div>
+            <div className="col-md-12 col-lg-7">
+              <div className="partner">
+                <div className="one">
+                  <img src="img/BANCO-POPULAR.png" alt />
+                </div>
+                <div className="one">
+                  <img src="img/Banco-Sabadell.png" alt />
+                </div>
+                <div className="one">
+                  <img src="img/bbva.png" alt />
+                </div>
+              </div>
             </div>
           </div>
-          <SliderCity />
         </div>
       </div>
+      {/* END.Our partners */}
+
+      {/* Request a free call for consultation */}
+      <div className="sec_call sec_call_white">
+        <div className="container">
+          <div className="sec_call_wrap">
+            <div className="row ">
+              <div className=".d-none .d-lg-block .d-xl-block col-lg-5">
+                <img src="img/call_img2.jpg" alt className="left_img" />
+              </div>
+              <div className="col-md-12 col-lg-7">
+                <div className="sec_title">
+                  <span>Subscribe</span> and receive <br /> special offers
+                </div>
+                <div className="form_underline">
+                  <form>
+                    <input type="email" placeholder="Email" />
+                    <div className="form_select_wrap">
+                      <select>
+                        <option value>What are you looking for?</option>
+                        <option value="Residence permit">House</option>
+                        <option value="Real estate">Flat</option>
+                      </select>
+                    </div>
+                    <button type="submit" className="main_button">
+                      Subscribe
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* END.Request a free call for consultation */}
     </>
   );
-}
+};
+
+export default RealState;
 
 export const getStaticProps = async () => {
-  const properties = await getAllProperties(0, PAGE_LIMIT);
+  const properties = await getAllProperties(1, PAGE_LIMIT);
   return {
     props: {
       properties,
