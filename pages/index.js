@@ -23,7 +23,7 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
     searchPropertyStatus
   );
 
-  console.log("status: ", propertyStatus);
+  // console.log("properties=====: ", properties);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
