@@ -41,10 +41,10 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city1.jpeg" alt />
+            <img src="img/city1.jpeg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
-                <div className="name">Benidorm</div>
+                <div className="name">Улаанбаатар</div>
                 <div className="number">8 objects</div>
               </div>
             </div>
@@ -54,10 +54,10 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city1.jpeg" alt />
+            <img src="img/city1.jpeg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
-                <div className="name">Altea</div>
+                <div className="name">Дархан</div>
                 <div className="number">10 objects</div>
               </div>
             </div>
@@ -67,10 +67,10 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city2.jpeg" alt />
+            <img src="img/city2.jpeg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
-                <div className="name">El Albir</div>
+                <div className="name">Эрдэнэт</div>
                 <div className="number">12 objects</div>
               </div>
             </div>
@@ -80,10 +80,10 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city3.jpeg" alt />
+            <img src="img/city3.jpeg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
-                <div className="name">Moraira</div>
+                <div className="name">Багануур</div>
                 <div className="number">5 objects</div>
               </div>
             </div>
@@ -93,10 +93,10 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city1.jpeg" alt />
+            <img src="img/city1.jpeg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
-                <div className="name">2 Benidorm</div>
+                <div className="name">Өмнөговь</div>
                 <div className="number">28 objects</div>
               </div>
             </div>
@@ -106,10 +106,10 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city1.jpeg" alt />
+            <img src="img/city1.jpeg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
-                <div className="name">2 Altea</div>
+                <div className="name">Ховд</div>
                 <div className="number">28 objects</div>
               </div>
             </div>

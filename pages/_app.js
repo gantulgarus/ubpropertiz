@@ -14,9 +14,25 @@ import "../public/css/adapt_992.css";
 import "../public/css/adapt_767.css";
 import "../public/css/adapt_576.css";
 import "../public/css/adapt_345.css";
+import "nprogress/nprogress.css";
 
 import { SWRConfig } from "swr";
+import Router from "next/router";
+import nProgress from "nprogress";
 import Layout from "components/layout/Layout";
+
+Router.onRouteChangeStart = (url) => {
+  console.log(url);
+  nProgress.start();
+};
+
+Router.onRouteChangeComplete = (url) => {
+  nProgress.done();
+};
+
+Router.onRouteChangeError = (url) => {
+  nProgress.done();
+};
 
 const fetcher = async (url) => {
   const res = await fetch(url);
@@ -44,7 +60,8 @@ function MyApp({ Component, pageProps }) {
           if (error.status !== 403 && error.status !== 404) {
             // We can send the error to Sentry,
             // or show a notification UI.
-            alert("Алдаа");
+            // alert("Алдаа");
+            console.log("error on appjs", error);
           }
         },
       }}

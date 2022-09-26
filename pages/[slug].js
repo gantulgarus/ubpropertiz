@@ -25,7 +25,7 @@ const PropertyDetailPage = ({ property }) => {
   };
 
   return (
-    <Layout>
+    <>
       {/* <pre>{JSON.stringify(property, null, 2)}</pre> */}
       {/* <!-- First screen --> */}
       <div className="sec_first_obj ">
@@ -41,7 +41,7 @@ const PropertyDetailPage = ({ property }) => {
                     property.imagesGallery.map((image, index) => (
                       <a
                         className={
-                          index < 4 || showAllImage
+                          index < 7 || showAllImage
                             ? "gall_link  visib"
                             : "gall_link"
                         }
@@ -75,9 +75,7 @@ const PropertyDetailPage = ({ property }) => {
                     />
                   )}
                 </div>
-                <div className="sold_wrap">
-                  <div className="sold">Sold</div>
-                </div>
+
                 <div
                   className="see_all"
                   id="see_all_construction"
@@ -101,7 +99,7 @@ const PropertyDetailPage = ({ property }) => {
                 <div className="title">{property.title}</div>
                 <div className="location">
                   <i className="fa fa-map-marker" />
-                  <span>Street 1-13, Province, Barcelona</span>
+                  <span>{property.location}</span>
                 </div>
                 <div className="specification">
                   <div className="spac_one">
@@ -133,27 +131,28 @@ const PropertyDetailPage = ({ property }) => {
                         suffix={" ₮"}
                       />
                     </div>
-                    <div className="id_obj">
-                      Property ID: <span>SFDF2564</span>
-                    </div>
                     <a
                       href="#modal_call"
                       className="main_button long popup-modal"
                     >
-                      Request demonstration
+                      Хүсэлт илгээх
                     </a>
                   </div>
                   <div className="tech_info">
                     <div className="ti_left">
-                      <div className="sold_wrap">
-                        <div className="sold">Sold</div>
-                      </div>
+                      {property.status === "Зарагдсан" ? (
+                        <div className="sold_wrap">
+                          <div className="sold">{property.status}</div>
+                        </div>
+                      ) : (
+                        ""
+                      )}
                       <div className="til_print_id">
                         <a className="print" href="javaScript:window.print();">
                           <i className="fa fa-print" />
                         </a>
                         <div className="id_obj">
-                          Property ID: <span>SFDF2564</span>
+                          Үл хөдлөх ID: <span>{property.propertyId}</span>
                         </div>
                       </div>
                     </div>
@@ -177,52 +176,24 @@ const PropertyDetailPage = ({ property }) => {
                   <div className="right_wrap_line">
                     <ul>
                       <li>
-                        <span>Property Type</span>
-                        <span>Casa, House, Villa</span>
+                        <span>Төрөл</span>
+                        <span>{property.type}</span>
                       </li>
                       <li>
-                        <span>Land area</span>
-                        <span>2445 m2</span>
+                        <span>Талбай</span>
+                        <span>{property.square} m2</span>
                       </li>
                       <li>
-                        <span>Bedrooms</span>
-                        <span>4</span>
+                        <span>Унтлагын өрөө</span>
+                        <span>{property.bedroom}</span>
                       </li>
                       <li>
-                        <span>Garage</span>
-                        <span>Yes</span>
+                        <span>Граж</span>
+                        <span>{property.garage}</span>
                       </li>
                       <li>
-                        <span>Bathrooms</span>
-                        <span>2</span>
-                      </li>
-                      <li>
-                        <span>Pool</span>
-                        <span>Да</span>
-                      </li>
-                      <li>
-                        <span>Year of construction</span>
-                        <span>2013</span>
-                      </li>
-                      <li>
-                        <span>Garden</span>
-                        <span>Yes</span>
-                      </li>
-                      <li>
-                        <span>Living Area</span>
-                        <span>223 m2</span>
-                      </li>
-                      <li>
-                        <span>Parking</span>
-                        <span>Yes</span>
-                      </li>
-                      <li>
-                        <span>Total area</span>
-                        <span>2445 m2</span>
-                      </li>
-                      <li>
-                        <span>View</span>
-                        <span>On the sea</span>
+                        <span>Угаалгын өрөө</span>
+                        <span>{property.bathroom}</span>
                       </li>
                     </ul>
                   </div>
@@ -239,20 +210,12 @@ const PropertyDetailPage = ({ property }) => {
                 <div className="col-md-9">
                   <div className="right_wrap_line">
                     <ul>
-                      <li> AC &amp; Heating </li>
-                      <li>Balcony</li>
-                      <li>Clubhouse</li>
-                      <li>Dishwasher</li>
-                      <li>Elevator</li>
-                      <li>Laundry service </li>
-                      <li>Modern kitchen</li>
-                      <li>Pool</li>
-                      <li>Spa</li>
-                      <li>Fitness center </li>
-                      <li>Granite countertops</li>
-                      <li>Storage Units</li>
-                      <li>Tennis court</li>
-                      <li>Parking</li>
+                      {property.property_feature &&
+                        property.property_feature.map((item) => (
+                          <li key={item._id}>
+                            <span>{item.label}</span>
+                          </li>
+                        ))}
                     </ul>
                   </div>
                 </div>
@@ -267,21 +230,7 @@ const PropertyDetailPage = ({ property }) => {
                 </div>
                 <div className="col-md-9">
                   <div className="right_wrap_line">
-                    <div className="text_wrap">
-                      <p>
-                        At sonet philosophia deterruisset vih. Ei facilisis
-                        dignissim voluptatum nam, ferri salutandi id vel, nulla
-                        jauando efficiantur ea duo. In solet laudem ius,
-                        appareat scriptorem vis te. Sapientem scripserit his no.
-                        Et verterem vituperatoribus vih. Et eos admodum
-                        erroribus, tale aejaue commune ei eum, vih ut perfecto
-                        reformidans.
-                      </p>
-                      <p>
-                        Vis ut dicta dicant adolescens, graeci labores eh vih.
-                        Eos adipisci appellantur eh.{" "}
-                      </p>
-                    </div>
+                    <div className="text_wrap">{property.description}</div>
                   </div>
                 </div>
               </div>
@@ -295,7 +244,7 @@ const PropertyDetailPage = ({ property }) => {
                 </div>
                 <div className="col-md-9">
                   <div className="right_wrap_line">
-                    <div className="map_wrap"></div>
+                    <div className="map_wrap">{property.location}</div>
                   </div>
                 </div>
               </div>
@@ -303,7 +252,7 @@ const PropertyDetailPage = ({ property }) => {
           </div>
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 

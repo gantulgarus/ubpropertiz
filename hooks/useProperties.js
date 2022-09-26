@@ -1,12 +1,16 @@
 import { useState } from "react";
 import useSWR from "swr";
 
-const PAGE_LIMIT = 3;
+const PAGE_LIMIT = 6;
 
-export const useProperties = (properties) => {
-  const [pageIndex, setPageIndex] = useState(0);
+export const useProperties = (
+  properties,
+  searchPropertyType,
+  searchPropertyStatus
+) => {
+  const [pageIndex, setPageIndex] = useState(1);
   const { data, error } = useSWR(
-    `/api/properties?page=${pageIndex}&limit=${PAGE_LIMIT}`,
+    `/api/properties?page=${pageIndex}&limit=${PAGE_LIMIT}&propertyType=${searchPropertyType}&propertyStatus=${searchPropertyStatus}`,
     {
       fallbackData: properties,
       onErrorRetry: (error, key, config, revalidate, { retryCount }) => {

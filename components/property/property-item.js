@@ -1,6 +1,5 @@
 import Link from "next/link";
 import CurrencyFormat from "react-currency-format";
-import css from "./property.module.css";
 
 import { urlFor } from "lib/api";
 
@@ -10,12 +9,11 @@ const PropertyItem = ({ property }) => {
       <div className="card_v">
         <div className="card_view">
           <div className="over_info">
-            <div className="sort">{property.type.name}</div>
-            <div className="status">{property.status.name}</div>
+            <div className="sort">{property.type}</div>
+            <div className="status">{property.status}</div>
           </div>
           <Link href={`/${property.slug}`}>
             <a>
-              {/* <img className={css.card_img} src={property.featured_image} /> */}
               <img
                 src={urlFor(property.featured_image)
                   .width(280)
@@ -24,19 +22,23 @@ const PropertyItem = ({ property }) => {
               />
             </a>
           </Link>
-          <div className="price">
-            <CurrencyFormat
-              value={property.price}
-              displayType={"text"}
-              thousandSeparator={true}
-              suffix={" ₮"}
-            />
-          </div>
+          {property.status == "Зарагдсан" ? (
+            <div className="price sold">{property.status}</div>
+          ) : (
+            <div className="price">
+              <CurrencyFormat
+                value={property.price}
+                displayType={"text"}
+                thousandSeparator={true}
+                suffix={" ₮"}
+              />
+            </div>
+          )}
         </div>
         <div className="card_info">
           <div className="location">
             <i className="fa fa-map-marker" />
-            Altea, Spain
+            {property.location}
           </div>
           <div className="description">
             <a href="/object.html">{property.title}</a>

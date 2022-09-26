@@ -15,7 +15,7 @@ const Aboutus = () => {
           <div className="row align-items-center">
             <div className="col-12 col-md-5 order-md-1 order-1">
               <div className="owner_img">
-                <img src="img/img3.png" alt />
+                <img src="img/img3.png" alt="зураг" />
               </div>
             </div>
             <div className="col-12 col-md-7 order-md-2 order-2">
@@ -57,7 +57,7 @@ const Aboutus = () => {
                       <i className="fa fa-facebook" />
                     </a>
                   </div>
-                  <img src="img/team1.jpg" alt />
+                  <img src="img/team1.jpg" alt="зураг" />
                 </div>
                 <div className="title">Johanna Violet</div>
                 <div className="position">Agent</div>
@@ -72,9 +72,9 @@ const Aboutus = () => {
                   </a>
                 </div>
                 <div className="languages">
-                  <img src="img/ru.png" alt />
-                  <img src="img/uk.png" alt />
-                  <img src="img/esp.png" alt />
+                  <img src="img/ru.png" alt="зураг" />
+                  <img src="img/uk.png" alt="зураг" />
+                  <img src="img/esp.png" alt="зураг" />
                 </div>
                 <div className="team_back"></div>
               </div>
@@ -87,7 +87,7 @@ const Aboutus = () => {
                       <i className="fa fa-facebook" />
                     </a>
                   </div>
-                  <img src="img/team2.jpg" alt />
+                  <img src="img/team2.jpg" alt="зураг" />
                 </div>
                 <div className="title">Alexa White</div>
                 <div className="position">Agent</div>
@@ -100,8 +100,8 @@ const Aboutus = () => {
                   <a href="mailto:alexa@Avados-inmo.es">alexa@Avados-inmo.es</a>
                 </div>
                 <div className="languages">
-                  <img src="img/ru.png" alt />
-                  <img src="img/uk.png" alt />
+                  <img src="img/ru.png" alt="зураг" />
+                  <img src="img/uk.png" alt="зураг" />
                 </div>
                 <div className="team_back"></div>
               </div>
@@ -114,7 +114,7 @@ const Aboutus = () => {
                       <i className="fa fa-facebook" />
                     </a>
                   </div>
-                  <img src="img/team3.jpg" alt />
+                  <img src="img/team3.jpg" alt="зураг" />
                 </div>
                 <div className="title">Anna Brown</div>
                 <div className="position">Agent</div>
@@ -127,8 +127,8 @@ const Aboutus = () => {
                   <a href="mailto:anna@Avados-inmo.es">anna@Avados-inmo.es</a>
                 </div>
                 <div className="languages">
-                  <img src="img/ru.png" alt />
-                  <img src="img/esp.png" alt />
+                  <img src="img/ru.png" alt="зураг" />
+                  <img src="img/esp.png" alt="зураг" />
                 </div>
                 <div className="team_back"></div>
               </div>
@@ -141,7 +141,7 @@ const Aboutus = () => {
                       <i className="fa fa-facebook" />
                     </a>
                   </div>
-                  <img src="img/team4.jpg" alt />
+                  <img src="img/team4.jpg" alt="зураг" />
                 </div>
                 <div className="title">Rosa Blue</div>
                 <div className="position">Agent</div>
@@ -154,9 +154,9 @@ const Aboutus = () => {
                   <a href="mailto:rosa@Avados-inmo.es">rosa@Avados-inmo.es</a>
                 </div>
                 <div className="languages">
-                  <img src="img/ru.png" alt />
-                  <img src="img/uk.png" alt />
-                  <img src="img/esp.png" alt />
+                  <img src="img/ru.png" alt="зураг" />
+                  <img src="img/uk.png" alt="зураг" />
+                  <img src="img/esp.png" alt="зураг" />
                 </div>
                 <div className="team_back"></div>
               </div>

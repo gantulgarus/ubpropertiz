@@ -2,7 +2,6 @@ import Link from "next/link";
 import PropertyItem from "./property-item";
 
 const PropertiesGrid = ({ properties }) => {
-  console.log("prop", properties);
   return (
     <div className="row">
       {properties &&

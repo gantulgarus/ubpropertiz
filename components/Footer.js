@@ -6,14 +6,14 @@ const Footer = () => {
           <div className="row">
             <div className="d-none d-sm-none d-md-block col-md-4 col-lg-2 order-md-1">
               <div className="logo_wrap">
-                <img src="img/logo_footer.png" alt />
-                <img src="img/qr.png" alt />
+                <img src="logo-footer-ubp.png" alt="footer-logo" />
+                {/* <img src="img/qr.png" alt="qr" /> */}
               </div>
             </div>
             <div className="col-md-8 col-lg-3 order-md-2 order-3">
               <div className="f_last_news_wrap">
                 <div className="f_last_news_wrap">
-                  <div className="f_title">Last news</div>
+                  <div className="f_title">Сүүлийн мэдээ</div>
                   <div className="last_news">
                     <div className="one_news">
                       <div className="time">12.11.2019</div>
@@ -44,17 +44,20 @@ const Footer = () => {
             </div>
             <div className="col-md-4 col-lg-3 order-md-3 order-md-2 order-2">
               <div className="f_adress_wrap">
-                <div className="f_title">Address</div>
+                <div className="f_title">Хаяг</div>
                 <div className="adress">
                   <div className="text">
-                    Street name 1-24, <br />
-                    Area, City name, <br />
-                    Country
+                    Чингэлтэй дүүрэг,
+                    <br />
+                    5-р хороо, Самбуугийн гудамж,
+                    <br />
+                    Шуурхай зар центр
                     <br />
                   </div>
                   <div className="all">
                     <a href="#">
-                      View on the map <i className="fa  fa-long-arrow-right " />
+                      Газрын зураг дээр харах
+                      <i className="fa  fa-long-arrow-right " />
                     </a>
                   </div>
                 </div>
@@ -62,24 +65,24 @@ const Footer = () => {
             </div>
             <div className="col-md-8 col-lg-4 order-md-4 order-1">
               <div className="f_contacts_wrap">
-                <div className="f_title">Contact us</div>
+                <div className="f_title">Холбоо барих</div>
                 <div className="contacts">
                   <div className="phone">
                     <i className="fa fa-whatsapp" />
                     <span>
-                      <span>(+34)</span> 674-488-970
+                      <span>(+976)</span> 9595-4679
                     </span>
                   </div>
                   <div className="email">
                     <i className="fa fa-envelope" />
-                    <span>service@Avados-inmo.es</span>
+                    <span>info@ubpropertiz.mn</span>
                   </div>
                   <div className="call">
                     <a
                       href="#modal_call"
                       className="ghost_button line popup-modal"
                     >
-                      Request a call back
+                      Залгах
                     </a>
                   </div>
                 </div>
@@ -94,19 +97,19 @@ const Footer = () => {
             <div className="col-6 col-md-4 order-md-1 order-1">
               <div className="languages">
                 <a href="#" className="current">
-                  <img src="img/ru.png" alt />
+                  <img src="img/ru.png" alt="зураг" />
                 </a>
                 <a href="#">
-                  <img src="img/uk.png" alt />
+                  <img src="img/uk.png" alt="зураг" />
                 </a>
                 <a href="#">
-                  <img src="img/esp.png" alt />
+                  <img src="img/esp.png" alt="зураг" />
                 </a>
               </div>
             </div>
             <div className="col-12 col-md-4 order-md-2 order-3">
               <div className="copyright_text">
-                © 2019 – Avados of London, Estate Agents
+                © 2022 – Бүх эрх хуулиар хамгаалалгдсан.
               </div>
             </div>
             <div className="col-6 col-md-4 order-md-3 order-2">
