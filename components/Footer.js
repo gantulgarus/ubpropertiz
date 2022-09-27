@@ -97,13 +97,13 @@ const Footer = () => {
             <div className="col-6 col-md-4 order-md-1 order-1">
               <div className="languages">
                 <a href="#" className="current">
-                  <img src="img/ru.png" alt="зураг" />
+                  <img src="img/mn.png" alt="mn" />
                 </a>
                 <a href="#">
-                  <img src="img/uk.png" alt="зураг" />
+                  <img src="img/uk.png" alt="uk" />
                 </a>
                 <a href="#">
-                  <img src="img/esp.png" alt="зураг" />
+                  <img src="img/ru.png" alt="ru" />
                 </a>
               </div>
             </div>

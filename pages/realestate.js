@@ -1,19 +1,26 @@
 import PropertiesGrid from "components/property/properties-grid";
 import SearchForm from "components/search-form";
 
-import { getAllProperties, getAllPropertyTypes } from "lib/api";
+import {
+  getAllProperties,
+  getAllPropertyTypes,
+  getAllPropertyStatus,
+} from "lib/api";
 import { useProperties } from "hooks/useProperties";
 
 import { useState } from "react";
 
 const PAGE_LIMIT = 6;
 
-const RealState = ({ properties, propertyTypes }) => {
+const RealState = ({ properties, propertyTypes, propertyStatus }) => {
   const [pageIndex, setPageIndex] = useState(1);
   const [searchPropertyType, setSearchPropertyType] = useState("");
+  const [searchPropertyStatus, setSearchPropertyStatus] = useState("");
+
   const { data, isLoading, error } = useProperties(
     properties,
-    searchPropertyType
+    searchPropertyType,
+    searchPropertyStatus
   );
 
   const handleSubmit = (event) => {
@@ -30,8 +37,11 @@ const RealState = ({ properties, propertyTypes }) => {
           <div className="first_content">
             <SearchForm
               propertyTypes={propertyTypes}
+              propertyStatus={propertyStatus}
               value={searchPropertyType}
               setSearchPropertyType={setSearchPropertyType}
+              searchPropertyStatus={searchPropertyStatus}
+              setSearchPropertyStatus={setSearchPropertyStatus}
               handleSubmit={handleSubmit}
             />
           </div>
@@ -45,8 +55,8 @@ const RealState = ({ properties, propertyTypes }) => {
           <div className="row">
             <div className="col-md-6">
               <div className="sec_result_wrap">
-                <div className="sec_title">Searching results</div>
-                <div className="sec_result">(45)</div>
+                <div className="sec_title">Хайлтын үр дүн</div>
+                <div className="sec_result">({data.length})</div>
               </div>
             </div>
             <div className="col-md-6">
@@ -61,7 +71,7 @@ const RealState = ({ properties, propertyTypes }) => {
               </div>
             </div>
           </div>
-          <PropertiesGrid properties={data} selectedType={searchPropertyType} />
+          <PropertiesGrid properties={data} />
           <div className="col-md-12">
             <nav className="pagination">
               <div className="pag_wrap">
@@ -157,10 +167,12 @@ export default RealState;
 export const getStaticProps = async () => {
   const properties = await getAllProperties(1, PAGE_LIMIT, "");
   const propertyTypes = await getAllPropertyTypes();
+  const propertyStatus = await getAllPropertyStatus();
   return {
     props: {
       properties,
       propertyTypes,
+      propertyStatus,
     },
     revalidate: 10,
   };

@@ -59,7 +59,6 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              {searchPropertyStatus}
               <div className="sec_uptitle">Танд санал болгох</div>
               <div className="sec_title">Онцлох үл хөдлөх хөрөнгө</div>
             </div>

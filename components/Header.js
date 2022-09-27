@@ -47,18 +47,18 @@ const Header = () => {
               >
                 <div className="languages">
                   <a href="#" className="current">
-                    <img src="img/ru.png" alt="ru" />
+                    <img src="img/mn.png" alt="mn" />
                   </a>
                   <a href="#">
                     <img src="img/uk.png" alt="uk" />
                   </a>
                   <a href="#">
-                    <img src="img/esp.png" alt="esp" />
+                    <img src="img/ru.png" alt="ru" />
                   </a>
                 </div>
                 <div className="contacts_links">
                   <a
-                    href="mailto:service@Avados-inmo.es"
+                    href="mailto:info@ubpropertiz.mn"
                     className="email_link popup-modal"
                   >
                     <i className="fa fa-envelope-o" />{" "}
@@ -86,12 +86,14 @@ const Header = () => {
                         <a href="">Үл хөдлөх</a>
                       </Link>
                     </li>
-                    <li>
-                      <a href="construction.html">Building</a>
+                    {/* <li>
+                      <a href="construction.html">Барилга</a>
                     </li>
                     <li>
-                      <a href="vng.html">Residence permit of Spain</a>
-                    </li>
+                      <a href="vng.html">
+                        Оффис dfdjskal dsajfklsdfa jklfdsa j
+                      </a>
+                    </li> */}
                     <li>
                       <a href="blog.html">Мэдээ</a>
                     </li>
