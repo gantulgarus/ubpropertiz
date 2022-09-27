@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useSWR from "swr";
 
-const PAGE_LIMIT = 6;
+const PAGE_LIMIT = 8;
 
 export const useProperties = (
   properties,

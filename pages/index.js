@@ -11,7 +11,7 @@ import { useProperties } from "hooks/useProperties";
 import SearchForm from "components/search-form";
 import { useState } from "react";
 
-const PAGE_LIMIT = 6;
+const PAGE_LIMIT = 8;
 
 export default function Home({ properties, propertyTypes, propertyStatus }) {
   const [searchPropertyType, setSearchPropertyType] = useState("");
@@ -23,7 +23,7 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
     searchPropertyStatus
   );
 
-  // console.log("properties=====: ", properties);
+  console.log("properties=====: ", properties);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
@@ -89,7 +89,7 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
 }
 
 export const getStaticProps = async () => {
-  const properties = await getAllProperties(1, PAGE_LIMIT, "");
+  const properties = await getAllProperties(1, PAGE_LIMIT);
   const propertyTypes = await getAllPropertyTypes();
   const propertyStatus = await getAllPropertyStatus();
 

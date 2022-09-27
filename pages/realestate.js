@@ -80,7 +80,7 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
                   onClick={() => setPageIndex(pageIndex - 1)}
                 />
                 <a href="#" className="current">
-                  {pageIndex + 1}
+                  {pageIndex}
                 </a>
                 {/* <a href="#">2</a>
                 <a href="#">3</a> */}
