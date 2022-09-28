@@ -11,24 +11,33 @@ import { useProperties } from "hooks/useProperties";
 import SearchForm from "components/search-form";
 import { useState } from "react";
 
-const PAGE_LIMIT = 8;
+const limit = 8;
 
 export default function Home({ properties, propertyTypes, propertyStatus }) {
+  const [pageIndex, setPageIndex] = useState(1);
   const [searchPropertyType, setSearchPropertyType] = useState("");
   const [searchPropertyStatus, setSearchPropertyStatus] = useState("");
 
-  const { data, isLoading, error } = useProperties(
+  const [searchStatus, setSearchStatus] = useState("");
+  const [searchType, setSearchType] = useState("");
+
+  const { data, error, isValidating } = useProperties(
     properties,
-    searchPropertyType,
-    searchPropertyStatus
+    pageIndex,
+    limit,
+    searchType,
+    searchStatus
   );
 
-  console.log("properties=====: ", properties);
+  // console.log("properties=====: ", properties);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
-    console.log("form submitted ✅");
+    setSearchStatus(searchPropertyStatus);
+    setSearchType(searchPropertyType);
+
+    console.log("form submitted ✅", searchStatus);
   };
 
   return (
@@ -59,6 +68,7 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
+              {searchStatus}
               <div className="sec_uptitle">Танд санал болгох</div>
               <div className="sec_title">Онцлох үл хөдлөх хөрөнгө</div>
             </div>
@@ -89,7 +99,7 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
 }
 
 export const getStaticProps = async () => {
-  const properties = await getAllProperties(1, PAGE_LIMIT);
+  const properties = await getAllProperties(1, limit);
   const propertyTypes = await getAllPropertyTypes();
   const propertyStatus = await getAllPropertyStatus();
 
@@ -99,6 +109,6 @@ export const getStaticProps = async () => {
       propertyTypes,
       propertyStatus,
     },
-    revalidate: 10,
+    revalidate: false,
   };
 };

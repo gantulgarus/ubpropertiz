@@ -9,22 +9,31 @@ import {
 import { useProperties } from "hooks/useProperties";
 
 import { useState } from "react";
+import Pagination from "components/pagination";
 
-const PAGE_LIMIT = 6;
+const limit = 3;
 
 const RealState = ({ properties, propertyTypes, propertyStatus }) => {
   const [pageIndex, setPageIndex] = useState(1);
   const [searchPropertyType, setSearchPropertyType] = useState("");
   const [searchPropertyStatus, setSearchPropertyStatus] = useState("");
 
-  const { data, isLoading, error } = useProperties(
+  const [searchStatus, setSearchStatus] = useState("");
+  const [searchType, setSearchType] = useState("");
+
+  const { data, error, isValidating } = useProperties(
     properties,
-    searchPropertyType,
-    searchPropertyStatus
+    pageIndex,
+    limit,
+    searchType,
+    searchStatus
   );
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    setSearchStatus(searchPropertyStatus);
+    setSearchType(searchPropertyType);
 
     console.log("form submitted ✅");
   };
@@ -63,7 +72,7 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
               <div className="sec_result_sort">
                 <div className="form_select_wrap">
                   <select name="status" id="search_sort">
-                    <option value="Sort by">Sort by</option>
+                    <option value="Sort by">Филтер</option>
                     <option value="Price">Price</option>
                     <option value="Rooms">Rooms</option>
                   </select>
@@ -71,26 +80,19 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
               </div>
             </div>
           </div>
-          <PropertiesGrid properties={data} />
+          {isValidating ? (
+            <div>Түр хүлээнэ үү...</div>
+          ) : (
+            <PropertiesGrid properties={data} />
+          )}
+
           <div className="col-md-12">
-            <nav className="pagination">
-              <div className="pag_wrap">
-                <a
-                  className="nav-prev"
-                  onClick={() => setPageIndex(pageIndex - 1)}
-                />
-                <a href="#" className="current">
-                  {pageIndex}
-                </a>
-                {/* <a href="#">2</a>
-                <a href="#">3</a> */}
-                <a
-                  href="#"
-                  className="nav-next"
-                  onClick={() => setPageIndex(pageIndex + 1)}
-                />
-              </div>
-            </nav>
+            <Pagination
+              pageIndex={pageIndex}
+              setPageIndex={setPageIndex}
+              limit={limit}
+              total={properties.length}
+            />
           </div>
         </div>
       </div>
@@ -165,7 +167,7 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
 export default RealState;
 
 export const getStaticProps = async () => {
-  const properties = await getAllProperties(1, PAGE_LIMIT, "");
+  const properties = await getAllProperties(1, 4, "");
   const propertyTypes = await getAllPropertyTypes();
   const propertyStatus = await getAllPropertyStatus();
   return {
@@ -174,6 +176,6 @@ export const getStaticProps = async () => {
       propertyTypes,
       propertyStatus,
     },
-    revalidate: 10,
+    revalidate: false,
   };
 };

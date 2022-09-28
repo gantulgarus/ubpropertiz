@@ -4649,3 +4649,15 @@ body.body_adapt_open {
 	width: 12px;
 	border-radius: 50%;
 }
+
+.pageBtn {
+	background: #c99564;
+	color: white;
+	width: 80px;
+	border: none;
+}
+.disabled-link {
+	pointer-events: none;
+	cursor: pointer;
+	background: #848484;
+  }

@@ -1,16 +1,15 @@
 import { useState } from "react";
 import useSWR from "swr";
 
-const PAGE_LIMIT = 8;
-
 export const useProperties = (
   properties,
-  searchPropertyType,
-  searchPropertyStatus
+  pageIndex,
+  limit,
+  searchType,
+  searchStatus
 ) => {
-  const [pageIndex, setPageIndex] = useState(1);
-  const { data, error } = useSWR(
-    `/api/properties?page=${pageIndex}&limit=${PAGE_LIMIT}&propertyType=${searchPropertyType}&propertyStatus=${searchPropertyStatus}`,
+  const { data, error, isValidating } = useSWR(
+    `/api/properties?page=${pageIndex}&limit=${limit}&propertyType=${searchType}&propertyStatus=${searchStatus}`,
     {
       fallbackData: properties,
       onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
@@ -33,7 +32,7 @@ export const useProperties = (
 
   return {
     data,
-    isLoading: !error && !data,
+    isValidating,
     error,
   };
 };

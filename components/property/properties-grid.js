@@ -1,7 +1,7 @@
 import PropertyItem from "./property-item";
 
 const PropertiesGrid = ({ properties }) => {
-  console.log("properties=====: ", properties);
+  // console.log("properties=====: ", properties);
   return (
     <div className="row">
       {properties &&

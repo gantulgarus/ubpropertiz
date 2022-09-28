@@ -4,12 +4,12 @@ const SearchForm = (props) => {
   const router = useRouter();
 
   const handleTypeChange = (e) => {
-    console.log("selected types: ", e.target.value);
+    // console.log("selected types: ", e.target.value);
     props.setSearchPropertyType(e.target.value);
   };
 
   const handleStatusChange = (e) => {
-    console.log("selected status: ", e.target.value);
+    // console.log("selected status: ", e.target.value);
     props.setSearchPropertyStatus(e.target.value);
   };
 
