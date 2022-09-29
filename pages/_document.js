@@ -4,7 +4,10 @@ class MyDocument extends Doucment {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        {/* <Head /> */}
+        <Head>
+          <title>Их хотын барилга</title>
+        </Head>
         <body>
           <Main />
           <NextScript />

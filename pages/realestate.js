@@ -5,28 +5,38 @@ import {
   getAllProperties,
   getAllPropertyTypes,
   getAllPropertyStatus,
+  getAllLocations,
 } from "lib/api";
 import { useProperties } from "hooks/useProperties";
 
 import { useState } from "react";
 import Pagination from "components/pagination";
+import Spinner from "components/utils/Spinner";
 
 const limit = 3;
 
-const RealState = ({ properties, propertyTypes, propertyStatus }) => {
+const RealState = ({
+  properties,
+  propertyTypes,
+  propertyStatus,
+  propertyLocations,
+}) => {
   const [pageIndex, setPageIndex] = useState(1);
   const [searchPropertyType, setSearchPropertyType] = useState("");
   const [searchPropertyStatus, setSearchPropertyStatus] = useState("");
+  const [searchPropertyLocation, setSearchPropertyLocation] = useState("");
 
   const [searchStatus, setSearchStatus] = useState("");
   const [searchType, setSearchType] = useState("");
+  const [searchLocation, setSearchLocation] = useState("");
 
   const { data, error, isValidating } = useProperties(
     properties,
     pageIndex,
     limit,
     searchType,
-    searchStatus
+    searchStatus,
+    searchLocation
   );
 
   const handleSubmit = (event) => {
@@ -34,6 +44,7 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
 
     setSearchStatus(searchPropertyStatus);
     setSearchType(searchPropertyType);
+    setSearchLocation(searchPropertyLocation.substring(0, 3));
 
     console.log("form submitted ✅");
   };
@@ -47,10 +58,13 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
             <SearchForm
               propertyTypes={propertyTypes}
               propertyStatus={propertyStatus}
-              value={searchPropertyType}
+              propertyLocations={propertyLocations}
+              searchPropertyType={searchPropertyType}
               setSearchPropertyType={setSearchPropertyType}
               searchPropertyStatus={searchPropertyStatus}
               setSearchPropertyStatus={setSearchPropertyStatus}
+              searchPropertyLocation={searchPropertyLocation}
+              setSearchPropertyLocation={setSearchPropertyLocation}
               handleSubmit={handleSubmit}
             />
           </div>
@@ -80,11 +94,8 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
               </div>
             </div>
           </div>
-          {isValidating ? (
-            <div>Түр хүлээнэ үү...</div>
-          ) : (
-            <PropertiesGrid properties={data} />
-          )}
+
+          {isValidating ? <Spinner /> : <PropertiesGrid properties={data} />}
 
           <div className="col-md-12">
             <Pagination
@@ -167,15 +178,18 @@ const RealState = ({ properties, propertyTypes, propertyStatus }) => {
 export default RealState;
 
 export const getStaticProps = async () => {
-  const properties = await getAllProperties(1, 4, "");
+  const properties = await getAllProperties();
   const propertyTypes = await getAllPropertyTypes();
   const propertyStatus = await getAllPropertyStatus();
+  const propertyLocations = await getAllLocations();
+
   return {
     props: {
       properties,
       propertyTypes,
       propertyStatus,
+      propertyLocations,
     },
-    revalidate: false,
+    revalidate: 60,
   };
 };

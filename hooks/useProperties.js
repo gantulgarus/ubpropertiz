@@ -6,10 +6,11 @@ export const useProperties = (
   pageIndex,
   limit,
   searchType,
-  searchStatus
+  searchStatus,
+  searchLocation
 ) => {
   const { data, error, isValidating } = useSWR(
-    `/api/properties?page=${pageIndex}&limit=${limit}&propertyType=${searchType}&propertyStatus=${searchStatus}`,
+    `/api/properties?page=${pageIndex}&limit=${limit}&propertyType=${searchType}&propertyStatus=${searchStatus}&propertyLocation=${searchLocation}`,
     {
       fallbackData: properties,
       onErrorRetry: (error, key, config, revalidate, { retryCount }) => {

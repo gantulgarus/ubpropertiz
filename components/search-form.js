@@ -312,9 +312,18 @@ const SearchForm = (props) => {
         <div className="select_wrap select_wrap_location">
           <label>Байршил</label>
           <div className="form_select_wrap">
-            <select name="status">
-              <option value="Все местоположения">Бүх байршил</option>
-              <option value="Ulaanbaatar">Улаанбаатар</option>
+            <select
+              name="location"
+              id="search_location"
+              value={props.searchPropertyLocation}
+              onChange={(e) => props.setSearchPropertyLocation(e.target.value)}
+            >
+              <option value="">Бүх байршил</option>
+              {props.propertyLocations.map((location) => (
+                <option key={location.name} value={location.name}>
+                  {location.name}
+                </option>
+              ))}
             </select>
           </div>
         </div>

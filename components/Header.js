@@ -1,9 +1,12 @@
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import ModalCall from "./modal-call";
 
 const Header = () => {
+  const router = useRouter();
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -83,7 +86,13 @@ const Header = () => {
                   <ul className="menu">
                     <li>
                       <Link href="/realestate">
-                        <a href="">Үл хөдлөх</a>
+                        <a
+                          className={
+                            router.pathname == "/realestate" ? "active" : ""
+                          }
+                        >
+                          Үл хөдлөх
+                        </a>
                       </Link>
                     </li>
                     {/* <li>
@@ -99,12 +108,24 @@ const Header = () => {
                     </li>
                     <li>
                       <Link href="/aboutus">
-                        <a href="">Бидний тухай</a>
+                        <a
+                          className={
+                            router.pathname == "/aboutus" ? "active" : ""
+                          }
+                        >
+                          Бидний тухай
+                        </a>
                       </Link>
                     </li>
                     <li>
                       <Link href="/contacts">
-                        <a href="">Холбоо барих</a>
+                        <a
+                          className={
+                            router.pathname == "/contacts" ? "active" : ""
+                          }
+                        >
+                          Холбоо барих
+                        </a>
                       </Link>
                     </li>
                   </ul>

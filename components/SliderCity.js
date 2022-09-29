@@ -1,7 +1,14 @@
 import React from "react";
+import Link from "next/link";
+import { useState } from "react";
 import Slider from "react-slick";
+import { useProperties } from "hooks/useProperties";
 
-export default function SliderCity() {
+export default function SliderCity({
+  handleClickCity,
+  selectedCity,
+  setSelectedCity,
+}) {
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -40,21 +47,29 @@ export default function SliderCity() {
     <Slider {...settings} className="row cover_city_slick slick_def">
       <div className="col-md-3">
         <div className="cover_city">
-          <a href="#">
-            <img src="img/city1.jpeg" alt="зураг" />
-            <div className="overlay">
-              <div className="o_border">
-                <div className="name">Улаанбаатар</div>
-                <div className="number">8 objects</div>
+          <Link href="/realestate">
+            <a
+              href=""
+              onClick={() => {
+                handleClickCity();
+                setSelectedCity("Улаанбаатар");
+              }}
+            >
+              <img src="img/ub.jpg" alt="зураг" />
+              <div className="overlay">
+                <div className="o_border">
+                  <div className="name">Улаанбаатар</div>
+                  <div className="number">8 objects</div>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </Link>
         </div>
       </div>
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city1.jpeg" alt="зураг" />
+            <img src="img/darkhan.jpg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
                 <div className="name">Дархан</div>
@@ -67,7 +82,7 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city2.jpeg" alt="зураг" />
+            <img src="img/et.jpg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
                 <div className="name">Эрдэнэт</div>
@@ -80,37 +95,11 @@ export default function SliderCity() {
       <div className="col-md-3">
         <div className="cover_city">
           <a href="#">
-            <img src="img/city3.jpeg" alt="зураг" />
+            <img src="img/baganuur.jpg" alt="зураг" />
             <div className="overlay">
               <div className="o_border">
                 <div className="name">Багануур</div>
                 <div className="number">5 objects</div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div className="col-md-3">
-        <div className="cover_city">
-          <a href="#">
-            <img src="img/city1.jpeg" alt="зураг" />
-            <div className="overlay">
-              <div className="o_border">
-                <div className="name">Өмнөговь</div>
-                <div className="number">28 objects</div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-      <div className="col-md-3">
-        <div className="cover_city">
-          <a href="#">
-            <img src="img/city1.jpeg" alt="зураг" />
-            <div className="overlay">
-              <div className="o_border">
-                <div className="name">Ховд</div>
-                <div className="number">28 objects</div>
               </div>
             </div>
           </a>

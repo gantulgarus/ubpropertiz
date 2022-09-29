@@ -40,7 +40,7 @@ const contacts = () => {
                   </div>
                   <div className="c_phone1">
                     <i className="fa fa-envelope" />
-                    <a href="mailto:info@email.com">info@propertiz.mn</a>
+                    <a href="mailto:info@email.com">info@ubpropertiz.mn</a>
                   </div>
                 </div>
               </div>

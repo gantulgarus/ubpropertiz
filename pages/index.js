@@ -3,6 +3,7 @@ import SliderCity from "components/SliderCity";
 import PropertiesGrid from "components/property/properties-grid";
 
 import {
+  getAllLocations,
   getAllProperties,
   getAllPropertyStatus,
   getAllPropertyTypes,
@@ -10,34 +11,50 @@ import {
 import { useProperties } from "hooks/useProperties";
 import SearchForm from "components/search-form";
 import { useState } from "react";
+import Spinner from "components/utils/Spinner";
 
 const limit = 8;
 
-export default function Home({ properties, propertyTypes, propertyStatus }) {
+export default function Home({
+  properties,
+  propertyTypes,
+  propertyStatus,
+  propertyLocations,
+}) {
   const [pageIndex, setPageIndex] = useState(1);
   const [searchPropertyType, setSearchPropertyType] = useState("");
   const [searchPropertyStatus, setSearchPropertyStatus] = useState("");
+  const [searchPropertyLocation, setSearchPropertyLocation] = useState("");
 
   const [searchStatus, setSearchStatus] = useState("");
   const [searchType, setSearchType] = useState("");
+  const [searchLocation, setSearchLocation] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
 
   const { data, error, isValidating } = useProperties(
     properties,
     pageIndex,
     limit,
     searchType,
-    searchStatus
+    searchStatus,
+    searchLocation
   );
 
-  // console.log("properties=====: ", properties);
+  console.log("selected city=====: ", selectedCity);
 
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
     setSearchStatus(searchPropertyStatus);
     setSearchType(searchPropertyType);
+    setSearchLocation(searchPropertyLocation.substring(0, 3));
 
-    console.log("form submitted ✅", searchStatus);
+    // console.log("form submitted ✅", searchStatus);
+  };
+
+  const handleClickCity = (event) => {
+    event.preventDefault();
+    setSearchLocation(selectedCity);
   };
 
   return (
@@ -53,10 +70,13 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
             <SearchForm
               propertyTypes={propertyTypes}
               propertyStatus={propertyStatus}
+              propertyLocations={propertyLocations}
               searchPropertyType={searchPropertyType}
               setSearchPropertyType={setSearchPropertyType}
               searchPropertyStatus={searchPropertyStatus}
               setSearchPropertyStatus={setSearchPropertyStatus}
+              searchPropertyLocation={searchPropertyLocation}
+              setSearchPropertyLocation={setSearchPropertyLocation}
               handleSubmit={handleSearchSubmit}
             />
           </div>
@@ -68,12 +88,12 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              {searchStatus}
               <div className="sec_uptitle">Танд санал болгох</div>
               <div className="sec_title">Онцлох үл хөдлөх хөрөнгө</div>
             </div>
           </div>
-          <PropertiesGrid properties={data} />
+          {searchLocation}
+          {isValidating ? <Spinner /> : <PropertiesGrid properties={data} />}
           <div className="all_card">
             <Link href="realestate">
               <a href="#" className="ghost_button long">
@@ -91,7 +111,11 @@ export default function Home({ properties, propertyTypes, propertyStatus }) {
               <div className="sec_title">Хүссэн хотоо сонгоно уу</div>
             </div>
           </div>
-          <SliderCity />
+          <SliderCity
+            handleClickCity={handleClickCity}
+            selectedCity={selectedCity}
+            setSelectedCity={setSelectedCity}
+          />
         </div>
       </div>
     </>
@@ -102,13 +126,15 @@ export const getStaticProps = async () => {
   const properties = await getAllProperties(1, limit);
   const propertyTypes = await getAllPropertyTypes();
   const propertyStatus = await getAllPropertyStatus();
+  const propertyLocations = await getAllLocations();
 
   return {
     props: {
       properties,
       propertyTypes,
       propertyStatus,
+      propertyLocations,
     },
-    revalidate: false,
+    revalidate: 60,
   };
 };
