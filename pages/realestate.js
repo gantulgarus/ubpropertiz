@@ -100,7 +100,7 @@ const RealState = ({
                   <select name="status" id="search_sort">
                     <option value="Sort by">Филтер</option>
                     <option value="Price">Үнэ</option>
-                    <option value="Rooms">Rooms</option>
+                    <option value="Rooms">Талбай</option>
                   </select>
                 </div>
               </div>

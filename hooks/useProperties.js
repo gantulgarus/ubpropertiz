@@ -13,6 +13,7 @@ export const useProperties = (
     `/api/properties?page=${pageIndex}&limit=${limit}&propertyType=${searchType}&propertyStatus=${searchStatus}&propertyLocation=${searchLocation}`,
     {
       fallbackData: properties,
+      revalidateOnFocus: false,
       onErrorRetry: (error, key, config, revalidate, { retryCount }) => {
         console.log("error try....");
         // Never retry on 404.
