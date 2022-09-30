@@ -29,7 +29,6 @@ export default function Home({
   const [searchStatus, setSearchStatus] = useState("");
   const [searchType, setSearchType] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
 
   const { data, error, isValidating } = useProperties(
     properties,
@@ -40,8 +39,6 @@ export default function Home({
     searchLocation
   );
 
-  console.log("selected city=====: ", selectedCity);
-
   const handleSearchSubmit = (event) => {
     event.preventDefault();
 
@@ -50,10 +47,6 @@ export default function Home({
     setSearchLocation(searchPropertyLocation.substring(0, 3));
 
     // console.log("form submitted ✅", searchStatus);
-  };
-
-  const handleClickCity = () => {
-    setSearchLocation(selectedCity.substring(0, 3));
   };
 
   return (
@@ -91,8 +84,6 @@ export default function Home({
               <div className="sec_title">Онцлох үл хөдлөх хөрөнгө</div>
             </div>
           </div>
-          <div>selectedCity: {selectedCity}</div>
-          <div>searchLocation: {searchLocation}</div>
           {isValidating ? <Spinner /> : <PropertiesGrid properties={data} />}
           <div className="all_card">
             <Link href="realestate">
@@ -111,11 +102,7 @@ export default function Home({
               <div className="sec_title">Хүссэн хотоо сонгоно уу</div>
             </div>
           </div>
-          <SliderCity
-            handleClickCity={handleClickCity}
-            selectedCity={selectedCity}
-            setSelectedCity={setSelectedCity}
-          />
+          <SliderCity />
         </div>
       </div>
     </>

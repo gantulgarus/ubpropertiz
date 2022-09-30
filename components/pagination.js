@@ -27,6 +27,7 @@ const Pagination = ({ pageIndex, setPageIndex, total, limit, pagination }) => {
         {page.map((i) => (
           <a
             href="#"
+            key={i}
             className={pageIndex === i ? "current" : ""}
             onClick={() => goToPage(i)}
           >

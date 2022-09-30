@@ -99,7 +99,7 @@ const RealState = ({
                 <div className="form_select_wrap">
                   <select name="status" id="search_sort">
                     <option value="Sort by">Филтер</option>
-                    <option value="Price">Price</option>
+                    <option value="Price">Үнэ</option>
                     <option value="Rooms">Rooms</option>
                   </select>
                 </div>
