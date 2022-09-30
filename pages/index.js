@@ -52,9 +52,8 @@ export default function Home({
     // console.log("form submitted ✅", searchStatus);
   };
 
-  const handleClickCity = (event) => {
-    event.preventDefault();
-    setSearchLocation(selectedCity);
+  const handleClickCity = () => {
+    setSearchLocation(selectedCity.substring(0, 3));
   };
 
   return (
@@ -92,7 +91,8 @@ export default function Home({
               <div className="sec_title">Онцлох үл хөдлөх хөрөнгө</div>
             </div>
           </div>
-          {searchLocation}
+          <div>selectedCity: {selectedCity}</div>
+          <div>searchLocation: {searchLocation}</div>
           {isValidating ? <Spinner /> : <PropertiesGrid properties={data} />}
           <div className="all_card">
             <Link href="realestate">

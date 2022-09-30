@@ -1,5 +1,9 @@
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+
 import PropertiesGrid from "components/property/properties-grid";
 import SearchForm from "components/search-form";
+import { useProperties } from "hooks/useProperties";
 
 import {
   getAllProperties,
@@ -7,13 +11,12 @@ import {
   getAllPropertyStatus,
   getAllLocations,
 } from "lib/api";
-import { useProperties } from "hooks/useProperties";
 
-import { useState } from "react";
 import Pagination from "components/pagination";
 import Spinner from "components/utils/Spinner";
+import { pagination } from "components/utils/Paginate";
 
-const limit = 3;
+const limit = 4;
 
 const RealState = ({
   properties,
@@ -29,6 +32,15 @@ const RealState = ({
   const [searchStatus, setSearchStatus] = useState("");
   const [searchType, setSearchType] = useState("");
   const [searchLocation, setSearchLocation] = useState("");
+
+  const router = useRouter();
+  let selectedCity = router.query.city;
+  if (!selectedCity) selectedCity = " ";
+
+  useEffect(() => {
+    setSearchPropertyLocation(selectedCity);
+    setSearchLocation(selectedCity);
+  }, [selectedCity]);
 
   const { data, error, isValidating } = useProperties(
     properties,
@@ -103,6 +115,7 @@ const RealState = ({
               setPageIndex={setPageIndex}
               limit={limit}
               total={properties.length}
+              pagination={pagination}
             />
           </div>
         </div>

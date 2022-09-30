@@ -47,12 +47,11 @@ export default function SliderCity({
     <Slider {...settings} className="row cover_city_slick slick_def">
       <div className="col-md-3">
         <div className="cover_city">
-          <Link href="/realestate">
+          <Link href="/realestate?city=Улаанбаатар">
             <a
-              href=""
               onClick={() => {
-                handleClickCity();
                 setSelectedCity("Улаанбаатар");
+                handleClickCity();
               }}
             >
               <img src="img/ub.jpg" alt="зураг" />
@@ -68,15 +67,22 @@ export default function SliderCity({
       </div>
       <div className="col-md-3">
         <div className="cover_city">
-          <a href="#">
-            <img src="img/darkhan.jpg" alt="зураг" />
-            <div className="overlay">
-              <div className="o_border">
-                <div className="name">Дархан</div>
-                <div className="number">10 objects</div>
+          <Link href="/realestate?city=Дархан">
+            <a
+              onClick={() => {
+                setSelectedCity("Дархан");
+                handleClickCity();
+              }}
+            >
+              <img src="img/darkhan.jpg" alt="зураг" />
+              <div className="overlay">
+                <div className="o_border">
+                  <div className="name">Дархан</div>
+                  <div className="number">10 objects</div>
+                </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </Link>
         </div>
       </div>
       <div className="col-md-3">

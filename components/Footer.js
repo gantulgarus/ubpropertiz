@@ -109,7 +109,7 @@ const Footer = () => {
             </div>
             <div className="col-12 col-md-4 order-md-2 order-3">
               <div className="copyright_text">
-                © 2022 – Бүх эрх хуулиар хамгаалалгдсан.
+                © 2022 – Бүх эрх хуулиар хамгаалагдсан.
               </div>
             </div>
             <div className="col-6 col-md-4 order-md-3 order-2">

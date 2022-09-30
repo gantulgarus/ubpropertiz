@@ -1,40 +1,40 @@
-const Pagination = ({ pageIndex, setPageIndex, total, limit }) => {
-  const goToFirstPage = () => setPageIndex(1);
+const Pagination = ({ pageIndex, setPageIndex, total, limit, pagination }) => {
+  // const goToFirstPage = () => setPageIndex(1);
 
-  const goToLastPage = () => setPageIndex(getLastPage());
+  // const goToLastPage = () => setPageIndex(getLastPage());
+
+  const goToPage = (page) => setPageIndex(page);
 
   const incrementPage = () =>
     pageIndex < getLastPage() && setPageIndex(pageIndex + 1);
 
   const decrementPage = () => pageIndex > 1 && setPageIndex(pageIndex - 1);
 
-  const atFirstPage = () => pageIndex === 1;
+  // const atFirstPage = () => pageIndex === 1;
 
-  const atLastPage = () => pageIndex === getLastPage();
+  // const atLastPage = () => pageIndex === getLastPage();
 
   const getLastPage = () => Math.ceil(total / limit);
-  console.log("Last page: ", Math.ceil(total / limit));
+
+  const pageN = Math.ceil(total / limit);
+
+  const page = pagination(pageIndex, pageN);
 
   return (
     <nav className="pagination">
       <div className="pag_wrap">
-        <button
-          className={atFirstPage() ? "pageBtn disabled-link" : "pageBtn"}
-          onClick={goToFirstPage}
-        >
-          First
-        </button>
         <a className="nav-prev" onClick={decrementPage} />
-        <a href="#" className="current">
-          {pageIndex}
-        </a>
+        {page.map((i) => (
+          <a
+            href="#"
+            className={pageIndex === i ? "current" : ""}
+            onClick={() => goToPage(i)}
+          >
+            {i}
+          </a>
+        ))}
+
         <a href="#" className="nav-next" onClick={incrementPage} />
-        <button
-          className={atLastPage() ? "pageBtn disabled-link" : "pageBtn"}
-          onClick={goToLastPage}
-        >
-          Last
-        </button>
       </div>
     </nav>
   );
