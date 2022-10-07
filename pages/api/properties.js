@@ -6,10 +6,14 @@ export default async (req, res) => {
   let propertyType = req.query.propertyType;
   let propertyStatus = req.query.propertyStatus;
   let propertyLocation = req.query.propertyLocation;
+  let types;
 
   if (!propertyType) propertyType = " ";
   if (!propertyStatus) propertyStatus = " ";
   if (!propertyLocation) propertyLocation = " ";
+
+  // if (!req.query.types) types = " ";
+  // else types = req.query.types.split(",");
 
   console.log(
     "=======" + Math.random(),

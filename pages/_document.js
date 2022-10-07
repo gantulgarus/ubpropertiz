@@ -5,9 +5,7 @@ class MyDocument extends Doucment {
     return (
       <Html lang="en">
         {/* <Head /> */}
-        <Head>
-          <title>Их хотын барилга</title>
-        </Head>
+        <Head>{/* <title>Их хотын барилга</title> */}</Head>
         <body>
           <Main />
           <NextScript />

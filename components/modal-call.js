@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const ModalCall = (props) => {
   return (
     <>
@@ -28,15 +30,8 @@ const ModalCall = (props) => {
                     <input type="text" placeholder="Name" />
                     <input type="email" placeholder="Email" />
                     <input type="tel" placeholder="Phone number" />
-                    <div className="form_select_wrap">
-                      <select>
-                        <option value>What are you looking for?</option>
-                        <option value="Residence permit">
-                          Residence permit
-                        </option>
-                        <option value="Real estate">Real estate</option>
-                      </select>
-                    </div>
+                    <textarea id="message" name="message"></textarea>
+
                     <button type="submit" className="main_button">
                       Order a free consultation
                     </button>

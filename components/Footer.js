@@ -1,13 +1,32 @@
+import { useState } from "react";
+import Image from "next/image";
+import ModalCall from "./modal-call";
+import ModalEmail from "./modal-email";
+
 const Footer = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  function openModal() {
+    setShowModal(true);
+  }
+
+  function closeModal() {
+    setShowModal(false);
+  }
   return (
     <>
+      {showModal && <ModalEmail closeModal={closeModal} />}
       <div className="sec_footer">
         <div className="container">
           <div className="row">
             <div className="d-none d-sm-none d-md-block col-md-4 col-lg-2 order-md-1">
               <div className="logo_wrap">
-                <img src="logo-footer-ubp.png" alt="footer-logo" />
-                {/* <img src="img/qr.png" alt="qr" /> */}
+                <Image
+                  src="/logo.png"
+                  alt="footer-logo"
+                  width={97}
+                  height={105}
+                />
               </div>
             </div>
             <div className="col-md-8 col-lg-3 order-md-2 order-3">
@@ -81,6 +100,7 @@ const Footer = () => {
                     <a
                       href="#modal_call"
                       className="ghost_button line popup-modal"
+                      onClick={openModal}
                     >
                       Залгах
                     </a>
@@ -95,21 +115,22 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-6 col-md-4 order-md-1 order-1">
-              <div className="languages">
+              {/* <div className="languages">
                 <a href="#" className="current">
-                  <img src="img/mn.png" alt="mn" />
+                  <Image src="/img/mn.png" alt="mn" width={22} height={15} />
                 </a>
                 <a href="#">
-                  <img src="img/uk.png" alt="uk" />
+                  <Image src="/img/uk.png" alt="uk" width={22} height={15} />
                 </a>
                 <a href="#">
-                  <img src="img/ru.png" alt="ru" />
+                  <Image src="/img/ru.png" alt="ru" width={22} height={15} />
                 </a>
-              </div>
+              </div> */}
             </div>
             <div className="col-12 col-md-4 order-md-2 order-3">
               <div className="copyright_text">
-                © 2022 – Бүх эрх хуулиар хамгаалагдсан.
+                Их хотын барилга Пропертиз ХХК © 2022 – Бүх эрх хуулиар
+                хамгаалагдсан.
               </div>
             </div>
             <div className="col-6 col-md-4 order-md-3 order-2">

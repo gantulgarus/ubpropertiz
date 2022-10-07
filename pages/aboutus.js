@@ -1,37 +1,43 @@
-const Aboutus = () => {
+import { getAllAgents } from "lib/api";
+
+const Aboutus = ({ agents }) => {
   return (
     <>
       {/* About us: First screen */}
+      {/* <pre>{JSON.stringify(agents, null, 2)}</pre> */}
       <div className="sec_owner sec_ab_about">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="sec_title">About us</div>
+              <div className="sec_title">Бидний тухай</div>
               <div className="sec_uptitle">
-                We offer the following options for obtaining a residence permit
+                2016 оноос хойш үл хөдлөх хөрөнгө зуучийн чиглэлээр үйл
+                ажиллагаа явуулсан
               </div>
             </div>
           </div>
           <div className="row align-items-center">
             <div className="col-12 col-md-5 order-md-1 order-1">
               <div className="owner_img">
-                <img src="img/img3.png" alt="зураг" />
+                <img src="img/about.jpg" alt="зураг" />
               </div>
             </div>
             <div className="col-12 col-md-7 order-md-2 order-2">
               <div className="owner_info">
-                <div className="name">Our goal</div>
+                <div className="name">Эрхэм зорилго</div>
                 <div className="text">
-                  Lorem ipsum dolor sit amet, liber diceret no nam. His jauis
-                  invidunt percipitur eu. Est alijauid incorrupte elaboraret ut.
-                  Ad pri modo inermis efficiantur, at lorem latine mel.
+                  Бид иргэд үйлчүүлэгчиддээ чанарын өндөр түвшинд үнэд тохирох,
+                  ая тухтай аюулгүй орчинд сэтгэл хангалуун ажиллан амьдрах
+                  орчинг бүрдүүлсэн орон сууц, объект, газар хашаа байшингуудаар
+                  сэтгэлд тохирсон халуун дулаан үйлчилгээгээр ханган ажиллах
+                  болно.
                   <br />
-                  <br />
-                  Singulis perpetua consulatu eam at, mea in salutandi
-                  scribentur repudiandae. Sonet posidonium cu usu.
                 </div>
+                <div className="name">Алсын хараа</div>
                 <div className="citation">
-                  Duo ut alia veritus imperdiet antiopam, noclita bonorum eos.{" "}
+                  Харилцаа ёс зүй дээр тулгуурласан Үл хөдлөх хөрөнгө зуучийн
+                  үйлчилгээг өндөрт өргөн өнөөгийн болон ирээдүйд дэлхийн
+                  тэргүүлэгч компани болох.
                 </div>
               </div>
             </div>
@@ -44,123 +50,36 @@ const Aboutus = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="sec_uptitle">Trusted professionals</div>
-              <div className="sec_title">Our team</div>
+              <div className="sec_uptitle">Итгэмжлэгдсэн мэргэжилтнүүд</div>
+              <div className="sec_title">Манай баг</div>
             </div>
           </div>
           <div className="row">
-            <div className="col-md-6 col-lg-3">
-              <div className="team">
-                <div className="img_wrap">
-                  <div className="fb_link">
-                    <a href="#">
-                      <i className="fa fa-facebook" />
-                    </a>
+            {agents.map((agent) => (
+              <div className="col-md-6 col-lg-3" key={agent.name}>
+                <div className="team">
+                  <div className="img_wrap">
+                    <div className="fb_link">
+                      <a href={agent.facebook}>
+                        <i className="fa fa-facebook" />
+                      </a>
+                    </div>
+                    <img className="agent_img" src={agent.image} alt="agent" />
                   </div>
-                  <img src="img/team1.jpg" alt="зураг" />
-                </div>
-                <div className="title">Johanna Violet</div>
-                <div className="position">Agent</div>
-                <div className="c_phone1">
-                  <i className="fa fa-whatsapp" />
-                  <span>(+34)</span> 674-488-970
-                </div>
-                <div className="c_phone1">
-                  <i className="fa fa-envelope" />
-                  <a href="mailto:johanna@Avados-inmo.es">
-                    johanna@Avados-inmo.es
-                  </a>
-                </div>
-                <div className="languages">
-                  <img src="img/ru.png" alt="зураг" />
-                  <img src="img/uk.png" alt="зураг" />
-                  <img src="img/esp.png" alt="зураг" />
-                </div>
-                <div className="team_back"></div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-3">
-              <div className="team">
-                <div className="img_wrap">
-                  <div className="fb_link">
-                    <a href="#">
-                      <i className="fa fa-facebook" />
-                    </a>
+                  <div className="title">{agent.name}</div>
+                  <div className="position">Агент</div>
+                  <div className="c_phone1">
+                    <i className="fa fa-whatsapp" />
+                    <span>(+976)</span> {agent.phone}
                   </div>
-                  <img src="img/team2.jpg" alt="зураг" />
-                </div>
-                <div className="title">Alexa White</div>
-                <div className="position">Agent</div>
-                <div className="c_phone1">
-                  <i className="fa fa-whatsapp" />
-                  <span>(+34)</span> 674-488-970
-                </div>
-                <div className="c_phone1">
-                  <i className="fa fa-envelope" />
-                  <a href="mailto:alexa@Avados-inmo.es">alexa@Avados-inmo.es</a>
-                </div>
-                <div className="languages">
-                  <img src="img/ru.png" alt="зураг" />
-                  <img src="img/uk.png" alt="зураг" />
-                </div>
-                <div className="team_back"></div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-3">
-              <div className="team">
-                <div className="img_wrap">
-                  <div className="fb_link">
-                    <a href="#">
-                      <i className="fa fa-facebook" />
-                    </a>
+                  <div className="c_phone1">
+                    <i className="fa fa-envelope" />
+                    <a href={`mailto:${agent.email}`}>{agent.email}</a>
                   </div>
-                  <img src="img/team3.jpg" alt="зураг" />
+                  <div className="team_back"></div>
                 </div>
-                <div className="title">Anna Brown</div>
-                <div className="position">Agent</div>
-                <div className="c_phone1">
-                  <i className="fa fa-whatsapp" />
-                  <span>(+34)</span> 674-488-970
-                </div>
-                <div className="c_phone1">
-                  <i className="fa fa-envelope" />
-                  <a href="mailto:anna@Avados-inmo.es">anna@Avados-inmo.es</a>
-                </div>
-                <div className="languages">
-                  <img src="img/ru.png" alt="зураг" />
-                  <img src="img/esp.png" alt="зураг" />
-                </div>
-                <div className="team_back"></div>
               </div>
-            </div>
-            <div className="col-md-6 col-lg-3">
-              <div className="team">
-                <div className="img_wrap">
-                  <div className="fb_link">
-                    <a href="#">
-                      <i className="fa fa-facebook" />
-                    </a>
-                  </div>
-                  <img src="img/team4.jpg" alt="зураг" />
-                </div>
-                <div className="title">Rosa Blue</div>
-                <div className="position">Agent</div>
-                <div className="c_phone1">
-                  <i className="fa fa-whatsapp" />
-                  <span>(+34)</span> 674-488-970
-                </div>
-                <div className="c_phone1">
-                  <i className="fa fa-envelope" />
-                  <a href="mailto:rosa@Avados-inmo.es">rosa@Avados-inmo.es</a>
-                </div>
-                <div className="languages">
-                  <img src="img/ru.png" alt="зураг" />
-                  <img src="img/uk.png" alt="зураг" />
-                  <img src="img/esp.png" alt="зураг" />
-                </div>
-                <div className="team_back"></div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -171,26 +90,26 @@ const Aboutus = () => {
           <div className="row">
             <div className="col-6 col-lg-3">
               <div className="info_one">
-                <div className="number">10+</div>
-                <div className="text">Years of work</div>
+                <div className="number">5+</div>
+                <div className="text">Ажилласан жил</div>
               </div>
             </div>
             <div className="col-6 col-lg-3">
               <div className="info_one">
                 <div className="number">250</div>
-                <div className="text">Successful deals</div>
+                <div className="text">Амжилттай хэлэлцээрүүд</div>
               </div>
             </div>
             <div className="col-6 col-lg-3">
               <div className="info_one">
                 <div className="number">140+</div>
-                <div className="text">Satisfied customers</div>
+                <div className="text">Сэтгэл ханамжтай үйлчлүүлэгчид</div>
               </div>
             </div>
             <div className="col-6 col-lg-3">
               <div className="info_one">
                 <div className="number">220</div>
-                <div className="text">Heading here</div>
+                <div className="text">Үл хөдлөх</div>
               </div>
             </div>
           </div>
@@ -202,3 +121,13 @@ const Aboutus = () => {
 };
 
 export default Aboutus;
+
+export const getStaticProps = async () => {
+  const agents = await getAllAgents();
+  return {
+    props: {
+      agents,
+    },
+    revalidate: false,
+  };
+};

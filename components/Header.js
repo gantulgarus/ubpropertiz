@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
-import ModalCall from "./modal-call";
+import ModalEmail from "./modal-email";
 
 const Header = () => {
   const router = useRouter();
@@ -26,7 +27,7 @@ const Header = () => {
   return (
     <>
       {/* Header */}
-      {showModal && <ModalCall closeModal={closeModal} />}
+      {showModal && <ModalEmail closeModal={closeModal} />}
       <div className="header_block" />
       <header className="header">
         <div className="container">
@@ -35,7 +36,12 @@ const Header = () => {
               <div className="logo">
                 <Link href="/">
                   <a href="">
-                    <img src="logo.png" alt="logo" />
+                    <Image
+                      src={"/logo.png"}
+                      alt="logo"
+                      width={84}
+                      height={84}
+                    />
                   </a>
                 </Link>
               </div>
@@ -50,13 +56,13 @@ const Header = () => {
               >
                 <div className="languages">
                   <a href="#" className="current">
-                    <img src="img/mn.png" alt="mn" />
+                    <Image src="/img/mn.png" alt="mn" width={22} height={15} />
                   </a>
                   <a href="#">
-                    <img src="img/uk.png" alt="uk" />
+                    <Image src="/img/uk.png" alt="uk" width={22} height={15} />
                   </a>
                   <a href="#">
-                    <img src="img/ru.png" alt="ru" />
+                    <Image src="/img/ru.png" alt="ru" width={22} height={15} />
                   </a>
                 </div>
                 <div className="contacts_links">
@@ -104,7 +110,13 @@ const Header = () => {
                       </a>
                     </li> */}
                     <li>
-                      <a href="blog.html">Мэдээ</a>
+                      <Link href="/blog">
+                        <a
+                          className={router.pathname == "/blog" ? "active" : ""}
+                        >
+                          Мэдээ, мэдээлэл
+                        </a>
+                      </Link>
                     </li>
                     <li>
                       <Link href="/aboutus">

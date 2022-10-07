@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 import PropertiesGrid from "components/property/properties-grid";
 import SearchForm from "components/search-form";
@@ -56,7 +57,7 @@ const RealState = ({
 
     setSearchStatus(searchPropertyStatus);
     setSearchType(searchPropertyType);
-    setSearchLocation(searchPropertyLocation.substring(0, 3));
+    setSearchLocation(searchPropertyLocation);
 
     console.log("form submitted ✅");
   };
@@ -136,13 +137,28 @@ const RealState = ({
             <div className="col-md-12 col-lg-7">
               <div className="partner">
                 <div className="one">
-                  <img src="img/BANCO-POPULAR.png" alt="зураг" />
+                  <Image
+                    src="/img/shuurhaizar.png"
+                    alt="зураг"
+                    width={200}
+                    height={50}
+                  />
                 </div>
                 <div className="one">
-                  <img src="img/Banco-Sabadell.png" alt="зураг" />
+                  <Image
+                    src="/img/Banco-Sabadell.png"
+                    alt="зураг"
+                    width={200}
+                    height={50}
+                  />
                 </div>
                 <div className="one">
-                  <img src="img/bbva.png" alt="зураг" />
+                  <Image
+                    src="/img/bbva.png"
+                    alt="зураг"
+                    width={80}
+                    height={50}
+                  />
                 </div>
               </div>
             </div>
@@ -157,24 +173,33 @@ const RealState = ({
           <div className="sec_call_wrap">
             <div className="row ">
               <div className=".d-none .d-lg-block .d-xl-block col-lg-5">
-                <img src="img/call_img2.jpg" alt="зураг" className="left_img" />
+                <Image
+                  src="/img/about.jpg"
+                  alt="зураг"
+                  className="left_img"
+                  width={400}
+                  height={300}
+                  placeholder="blur"
+                  blurDataURL="/img/about.jpg"
+                />
               </div>
               <div className="col-md-12 col-lg-7">
                 <div className="sec_title">
-                  <span>Subscribe</span> and receive <br /> special offers
+                  Имэйл хаягаа <span>Бүртгүүлээд</span> <br />
+                  тусгай санал хүлээн авна уу
                 </div>
                 <div className="form_underline">
                   <form>
-                    <input type="email" placeholder="Email" />
+                    <input type="email" placeholder="Имэйл" />
                     <div className="form_select_wrap">
                       <select>
-                        <option value>What are you looking for?</option>
+                        <option value>Юу хайж байна вэ?</option>
                         <option value="Residence permit">House</option>
                         <option value="Real estate">Flat</option>
                       </select>
                     </div>
                     <button type="submit" className="main_button">
-                      Subscribe
+                      Бүртгүүлэх
                     </button>
                   </form>
                 </div>

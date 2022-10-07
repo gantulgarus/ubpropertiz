@@ -13,7 +13,7 @@ const PropertyItem = ({ property }) => {
             <div className="sort">{property.type}</div>
             <div className="status">{property.status}</div>
           </div>
-          <Link href={`/${property.slug}`}>
+          <Link href={`/realestate/${property.slug}`}>
             <a>
               <img
                 src={urlFor(property.featured_image)

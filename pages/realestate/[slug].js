@@ -1,14 +1,24 @@
 import { useState, useCallback } from "react";
-import Layout from "components/layout/Layout";
+import Image from "next/image";
 import { getPropertyBySlug, getAllProperties } from "lib/api";
 
 import CurrencyFormat from "react-currency-format";
 import ImageViewer from "react-simple-image-viewer";
+import ModalEmail from "components/modal-email";
 
 const PropertyDetailPage = ({ property }) => {
   const [showAllImage, setShowAllImage] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  function openModal() {
+    setShowModal(true);
+  }
+
+  function closeModal() {
+    setShowModal(false);
+  }
 
   const openImageViewer = useCallback((index) => {
     setCurrentImage(index);
@@ -27,6 +37,13 @@ const PropertyDetailPage = ({ property }) => {
   return (
     <>
       {/* <pre>{JSON.stringify(property, null, 2)}</pre> */}
+      {showModal && (
+        <ModalEmail
+          closeModal={closeModal}
+          showModal={showModal}
+          setShowModal={setShowModal}
+        />
+      )}
       {/* <!-- First screen --> */}
       <div className="sec_first_obj ">
         <div className="container">
@@ -48,11 +65,15 @@ const PropertyDetailPage = ({ property }) => {
                         onClick={() => openImageViewer(index)}
                         key={index}
                       >
-                        <img
-                          className="gall_img"
-                          src={image.src}
-                          alt="gall_img"
-                        />
+                        <div className="gall_img">
+                          <Image
+                            src={image.src}
+                            alt="gall_img"
+                            layout="fill"
+                            placeholder="blur"
+                            blurDataURL={image.src}
+                          />
+                        </div>
                         <div className="overlay">
                           <div className="o_border">
                             <div className="big">
@@ -72,6 +93,7 @@ const PropertyDetailPage = ({ property }) => {
                       backgroundStyle={{
                         backgroundColor: "rgba(0,0,0,0.7)",
                       }}
+                      style={{ zIndex: 10 }}
                     />
                   )}
                 </div>
@@ -103,19 +125,19 @@ const PropertyDetailPage = ({ property }) => {
                 </div>
                 <div className="specification">
                   <div className="spac_one">
-                    <img src="img/area.png" alt="area" />
+                    <img src="../img/area.png" alt="area" />
                     <span>{property.square} m2</span>
                   </div>
                   <div className="spac_one">
-                    <img src="img/garage.png" alt="garage" />
+                    <img src="../img/garage.png" alt="garage" />
                     <span>{property.garage}</span>
                   </div>
                   <div className="spac_one">
-                    <img src="img/bathroom.png" alt="bathroom" />
+                    <img src="../img/bathroom.png" alt="bathroom" />
                     <span>{property.bathroom}</span>
                   </div>
                   <div className="spac_one">
-                    <img src="img/bedroom2.png" alt="bedroom" />
+                    <img src="../img/bedroom2.png" alt="bedroom" />
                     <span>{property.bedroom}</span>
                   </div>
                 </div>
@@ -134,6 +156,7 @@ const PropertyDetailPage = ({ property }) => {
                     <a
                       href="#modal_call"
                       className="main_button long popup-modal"
+                      onClick={openModal}
                     >
                       Хүсэлт илгээх
                     </a>
@@ -148,7 +171,7 @@ const PropertyDetailPage = ({ property }) => {
                         ""
                       )}
                       <div className="til_print_id">
-                        <a className="print" href="javaScript:window.print();">
+                        <a className="print" href="">
                           <i className="fa fa-print" />
                         </a>
                         <div className="id_obj">
@@ -158,7 +181,7 @@ const PropertyDetailPage = ({ property }) => {
                     </div>
                     <div className="ti_right">
                       <div className="qr">
-                        <img src="img/qr2.png" alt="qr" />
+                        <img src="../img/qr2.png" alt="qr" />
                       </div>
                     </div>
                   </div>
