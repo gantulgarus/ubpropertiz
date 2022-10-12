@@ -1,10 +1,19 @@
 import { useState } from "react";
 import Image from "next/image";
-import ModalCall from "./modal-call";
+import Link from "next/link";
+import moment from "moment";
+import { usePosts } from "hooks/usePosts";
 import ModalEmail from "./modal-email";
+
+const limit = 2;
 
 const Footer = () => {
   const [showModal, setShowModal] = useState(false);
+  const [pageIndex, setPageIndex] = useState(1);
+  const [posts, setPosts] = useState();
+
+  const { data, error, isValidating } = usePosts(posts, pageIndex, limit);
+  console.log("Footer posts", data);
 
   function openModal() {
     setShowModal(true);
@@ -34,28 +43,30 @@ const Footer = () => {
                 <div className="f_last_news_wrap">
                   <div className="f_title">Сүүлийн мэдээ</div>
                   <div className="last_news">
-                    <div className="one_news">
-                      <div className="time">12.11.2019</div>
-                      <div className="text">
-                        <a href="#">
-                          The reconstructed lofts in the centuries-old became
-                          the Russian national industrial …
-                        </a>
-                      </div>
-                    </div>
-                    <div className="one_news">
-                      <div className="time">12.11.2019</div>
-                      <div className="text">
-                        <a href="#">
-                          Press Release: Russian National Concrete Structure of
-                          the Year.
-                        </a>
-                      </div>
-                    </div>
+                    {isValidating ? (
+                      <div>Loading...</div>
+                    ) : (
+                      data.map((post) => (
+                        <div className="one_news" key={post._id}>
+                          <div className="time">
+                            {moment(post.date).format("YYYY-MM-DD")}
+                          </div>
+                          <div className="text">
+                            <Link href={`/blog/${post.slug}`}>
+                              <a>{post.title}</a>
+                            </Link>
+                          </div>
+                        </div>
+                      ))
+                    )}
+
                     <div className="all">
-                      <a href="#">
-                        Show all <i className="fa  fa-long-arrow-right " />
-                      </a>
+                      <Link href="/blog">
+                        <a>
+                          Бүгдийг үзэх{" "}
+                          <i className="fa  fa-long-arrow-right " />
+                        </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -74,10 +85,12 @@ const Footer = () => {
                     <br />
                   </div>
                   <div className="all">
-                    <a href="#">
-                      Газрын зураг дээр харах
-                      <i className="fa  fa-long-arrow-right " />
-                    </a>
+                    <Link href="/contacts">
+                      <a>
+                        Газрын зураг дээр харах
+                        <i className="fa  fa-long-arrow-right " />
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -114,19 +127,7 @@ const Footer = () => {
       <div className="sec_copyright">
         <div className="container">
           <div className="row">
-            <div className="col-6 col-md-4 order-md-1 order-1">
-              {/* <div className="languages">
-                <a href="#" className="current">
-                  <Image src="/img/mn.png" alt="mn" width={22} height={15} />
-                </a>
-                <a href="#">
-                  <Image src="/img/uk.png" alt="uk" width={22} height={15} />
-                </a>
-                <a href="#">
-                  <Image src="/img/ru.png" alt="ru" width={22} height={15} />
-                </a>
-              </div> */}
-            </div>
+            <div className="col-6 col-md-4 order-md-1 order-1"></div>
             <div className="col-12 col-md-4 order-md-2 order-3">
               <div className="copyright_text">
                 Их хотын барилга Пропертиз ХХК © 2022 – Бүх эрх хуулиар

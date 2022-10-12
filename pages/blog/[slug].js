@@ -42,11 +42,13 @@ const BlogDetailPage = ({ post }) => {
                 <div className="author">
                   <a href="#">
                     <img
+                      className="rounded-circle"
                       src={urlFor(post.agent.image).width(30).height(30).url()}
                       alt="publisher"
                     />
                     <span className="name">
-                      {post.agent.name} {moment(post.date).format("YYYY-MM-DD")}
+                      {post.agent.name},{" "}
+                      {moment(post.date).format("YYYY-MM-DD")}
                     </span>
                   </a>
                 </div>
@@ -54,7 +56,7 @@ const BlogDetailPage = ({ post }) => {
               <div className="article_body">
                 <img
                   className="img_article1"
-                  src={urlFor(post.featured_image).height(400).url()}
+                  src={urlFor(post.featured_image).height(500).url()}
                   loading="lazy"
                   alt="featured_image"
                 />
@@ -92,16 +94,6 @@ const BlogDetailPage = ({ post }) => {
                   />
                 </div>
                 <div className="body_meta">
-                  <div className="author">
-                    <a href="#">
-                      <img src="img/author1.png" alt="author" />
-                      <span className="name">John Doe</span>
-                    </a>
-                  </div>
-                  <div className="tags">
-                    <a href="#">Residence permit of Spain</a>
-                    <a href="#">Beautiful places</a>
-                  </div>
                   <div className="social">
                     <a href="#">
                       <i className="fa fa-instagram" />
