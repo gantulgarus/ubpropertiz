@@ -94,7 +94,7 @@ const Header = () => {
                       <Link href="/realestate">
                         <a
                           className={
-                            router.pathname == "/realestate" ? "active" : ""
+                            router.pathname === "/realestate" ? "active" : ""
                           }
                         >
                           Үл хөдлөх
@@ -112,7 +112,9 @@ const Header = () => {
                     <li>
                       <Link href="/blog">
                         <a
-                          className={router.pathname == "/blog" ? "active" : ""}
+                          className={
+                            router.pathname === "/blog" ? "active" : ""
+                          }
                         >
                           Мэдээ, мэдээлэл
                         </a>
@@ -122,7 +124,7 @@ const Header = () => {
                       <Link href="/aboutus">
                         <a
                           className={
-                            router.pathname == "/aboutus" ? "active" : ""
+                            router.pathname === "/aboutus" ? "active" : ""
                           }
                         >
                           Бидний тухай
@@ -133,7 +135,7 @@ const Header = () => {
                       <Link href="/contacts">
                         <a
                           className={
-                            router.pathname == "/contacts" ? "active" : ""
+                            router.pathname === "/contacts" ? "active" : ""
                           }
                         >
                           Холбоо барих

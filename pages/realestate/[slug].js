@@ -279,6 +279,8 @@ const PropertyDetailPage = ({ property }) => {
   );
 };
 
+export default PropertyDetailPage;
+
 export const getStaticProps = async ({ params }) => {
   const property = await getPropertyBySlug(params.slug);
   return {
@@ -300,5 +302,3 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
-
-export default PropertyDetailPage;

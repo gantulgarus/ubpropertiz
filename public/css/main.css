@@ -4677,3 +4677,7 @@ body.body_adapt_open {
 	height: 283px;
 	object-fit: cover;
 }
+.content-list > li {
+	display: list-item;
+  	list-style-position: inside;
+}

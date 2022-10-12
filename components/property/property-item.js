@@ -4,7 +4,6 @@ import CurrencyFormat from "react-currency-format";
 import { urlFor } from "lib/api";
 
 const PropertyItem = ({ property }) => {
-  // console.log("property item: ", property);
   return (
     <div className="col-md-6 col-lg-4 col-xl-3">
       <div className="card_v">

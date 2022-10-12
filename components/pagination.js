@@ -1,18 +1,10 @@
 const Pagination = ({ pageIndex, setPageIndex, total, limit, pagination }) => {
-  // const goToFirstPage = () => setPageIndex(1);
-
-  // const goToLastPage = () => setPageIndex(getLastPage());
-
   const goToPage = (page) => setPageIndex(page);
 
   const incrementPage = () =>
     pageIndex < getLastPage() && setPageIndex(pageIndex + 1);
 
   const decrementPage = () => pageIndex > 1 && setPageIndex(pageIndex - 1);
-
-  // const atFirstPage = () => pageIndex === 1;
-
-  // const atLastPage = () => pageIndex === getLastPage();
 
   const getLastPage = () => Math.ceil(total / limit);
 
