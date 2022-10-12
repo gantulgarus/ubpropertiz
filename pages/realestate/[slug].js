@@ -300,6 +300,6 @@ export const getStaticPaths = async () => {
   }));
   return {
     paths: data,
-    fallback: false,
+    fallback: "blocking",
   };
 };
