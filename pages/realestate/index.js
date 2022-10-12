@@ -17,7 +17,7 @@ import Pagination from "components/pagination";
 import Spinner from "components/utils/Spinner";
 import { pagination } from "components/utils/Paginate";
 
-const limit = 4;
+const limit = 8;
 
 const RealState = ({
   properties,
