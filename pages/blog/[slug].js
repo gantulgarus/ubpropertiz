@@ -56,7 +56,7 @@ const BlogDetailPage = ({ post }) => {
               <div className="article_body">
                 <img
                   className="img_article1"
-                  src={urlFor(post.featured_image).height(500).url()}
+                  src={urlFor(post.featured_image).width(900).url()}
                   loading="lazy"
                   alt="featured_image"
                 />

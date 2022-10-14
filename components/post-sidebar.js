@@ -21,22 +21,12 @@ const Sidebar = () => {
               <a href="#">Articles</a>
             </li>
             <li>
-              <a href="#">Interesting about Spain</a>
+              <a href="#">Photo news</a>
             </li>
             <li>
-              <a href="#">Top bloggers in Spain</a>
+              <a href="#">Top bloggers in UB</a>
             </li>
           </ul>
-        </div>
-        <div className="tags">
-          <div className="title">Таг</div>
-          <div className="tags_wrap">
-            <a href="#">Residence permit of Spain</a>
-            <a href="#">Beautiful places</a>
-            <a href="#">Tag</a>
-            <a href="#">Tag name</a>
-            <a href="#">Tag name 2</a>
-          </div>
         </div>
       </div>
     </div>
