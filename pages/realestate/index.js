@@ -52,6 +52,8 @@ const RealState = ({
     searchLocation
   );
 
+  console.log("realstate properties: ", properties);
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
