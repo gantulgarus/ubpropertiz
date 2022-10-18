@@ -1,5 +1,6 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
+import { useReactToPrint } from "react-to-print";
 import { getPropertyBySlug, getAllProperties } from "lib/api";
 
 import CurrencyFormat from "react-currency-format";
@@ -7,10 +8,17 @@ import ImageViewer from "react-simple-image-viewer";
 import ModalEmail from "components/modal-email";
 
 const PropertyDetailPage = ({ property }) => {
+  const componentRef = useRef();
   const [showAllImage, setShowAllImage] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+    documentTitle: "Property-Info",
+    onAfterPrint: () => alert("Print Success"),
+  });
 
   function openModal() {
     setShowModal(true);
@@ -35,7 +43,7 @@ const PropertyDetailPage = ({ property }) => {
   };
 
   return (
-    <>
+    <div ref={componentRef}>
       {/* <pre>{JSON.stringify(property, null, 2)}</pre> */}
       {showModal && (
         <ModalEmail
@@ -171,7 +179,7 @@ const PropertyDetailPage = ({ property }) => {
                         ""
                       )}
                       <div className="til_print_id">
-                        <a className="print" href="">
+                        <a className="print" href="#" onClick={handlePrint}>
                           <i className="fa fa-print" />
                         </a>
                         <div className="id_obj">
@@ -275,7 +283,7 @@ const PropertyDetailPage = ({ property }) => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
