@@ -61,7 +61,7 @@ const PropertyDetailPage = ({ property }) => {
 
   return (
     <div ref={componentRef}>
-      <pre>{JSON.stringify(property, null, 2)}</pre>
+      {/* <pre>{JSON.stringify(property, null, 2)}</pre> */}
       {showModal && (
         <ModalEmail
           closeModal={closeModal}
