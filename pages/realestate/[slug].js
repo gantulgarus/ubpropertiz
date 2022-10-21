@@ -293,26 +293,29 @@ const PropertyDetailPage = ({ property }) => {
                 <div className="col-md-9">
                   <div className="right_wrap_line">
                     <div className="map_wrap">
-                      <LoadScript googleMapsApiKey="AIzaSyDWqRwqCfW0Pvp2DeZTwBcsfAJQltzCoUE">
-                        <GoogleMap
-                          mapContainerStyle={containerStyle}
-                          center={{
-                            lat: property.address.lat,
-                            lng: property.address.lng,
-                          }}
-                          zoom={14}
-                        >
-                          {/* Child components, such as markers, info windows, etc. */}
-                          <Marker
-                            onLoad={onLoad}
-                            position={{
+                      {property.address && (
+                        <LoadScript googleMapsApiKey="AIzaSyDWqRwqCfW0Pvp2DeZTwBcsfAJQltzCoUE">
+                          <GoogleMap
+                            mapContainerStyle={containerStyle}
+                            center={{
                               lat: property.address.lat,
                               lng: property.address.lng,
                             }}
-                            title="UB Propertiz LLC"
-                          />
-                        </GoogleMap>
-                      </LoadScript>
+                            zoom={14}
+                          >
+                            {/* Child components, such as markers, info windows, etc. */}
+                            <Marker
+                              onLoad={onLoad}
+                              position={{
+                                lat: property.address.lat,
+                                lng: property.address.lng,
+                              }}
+                              title="UB Propertiz LLC"
+                            />
+                          </GoogleMap>
+                        </LoadScript>
+                      )}
+
                       {property.location}
                     </div>
                   </div>
