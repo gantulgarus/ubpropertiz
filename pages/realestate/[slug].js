@@ -1,11 +1,28 @@
 import { useState, useCallback, useRef } from "react";
 import Image from "next/image";
 import { useReactToPrint } from "react-to-print";
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import { getPropertyBySlug, getAllProperties } from "lib/api";
 
 import CurrencyFormat from "react-currency-format";
 import ImageViewer from "react-simple-image-viewer";
 import ModalEmail from "components/modal-email";
+
+const containerStyle = {
+  width: "100%",
+  height: "400px",
+};
+const center = {
+  lat: 47.915143,
+  lng: 106.904419,
+};
+const markerPosition = {
+  lat: 47.922025,
+  lng: -253.097734,
+};
+const onLoad = (marker) => {
+  console.log("marker: ", marker);
+};
 
 const PropertyDetailPage = ({ property }) => {
   const componentRef = useRef();
@@ -44,7 +61,7 @@ const PropertyDetailPage = ({ property }) => {
 
   return (
     <div ref={componentRef}>
-      {/* <pre>{JSON.stringify(property, null, 2)}</pre> */}
+      <pre>{JSON.stringify(property, null, 2)}</pre>
       {showModal && (
         <ModalEmail
           closeModal={closeModal}
@@ -275,7 +292,29 @@ const PropertyDetailPage = ({ property }) => {
                 </div>
                 <div className="col-md-9">
                   <div className="right_wrap_line">
-                    <div className="map_wrap">{property.location}</div>
+                    <div className="map_wrap">
+                      <LoadScript googleMapsApiKey="AIzaSyDWqRwqCfW0Pvp2DeZTwBcsfAJQltzCoUE">
+                        <GoogleMap
+                          mapContainerStyle={containerStyle}
+                          center={{
+                            lat: property.address.lat,
+                            lng: property.address.lng,
+                          }}
+                          zoom={14}
+                        >
+                          {/* Child components, such as markers, info windows, etc. */}
+                          <Marker
+                            onLoad={onLoad}
+                            position={{
+                              lat: property.address.lat,
+                              lng: property.address.lng,
+                            }}
+                            title="UB Propertiz LLC"
+                          />
+                        </GoogleMap>
+                      </LoadScript>
+                      {property.location}
+                    </div>
                   </div>
                 </div>
               </div>

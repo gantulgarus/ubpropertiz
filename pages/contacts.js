@@ -1,3 +1,22 @@
+import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+
+const containerStyle = {
+  width: "100%",
+  height: "100%",
+};
+
+const center = {
+  lat: 47.915143,
+  lng: 106.904419,
+};
+const markerPosition = {
+  lat: 47.922025,
+  lng: -253.097734,
+};
+const onLoad = (marker) => {
+  console.log("marker: ", marker);
+};
+
 const contacts = () => {
   return (
     <>
@@ -60,7 +79,22 @@ const contacts = () => {
             </div>
             <div className="col-md-6">
               <div className="map_wrap">
-                <div className="map"></div>
+                <div className="map">
+                  <LoadScript googleMapsApiKey="AIzaSyDWqRwqCfW0Pvp2DeZTwBcsfAJQltzCoUE">
+                    <GoogleMap
+                      mapContainerStyle={containerStyle}
+                      center={center}
+                      zoom={14}
+                    >
+                      {/* Child components, such as markers, info windows, etc. */}
+                      <Marker
+                        onLoad={onLoad}
+                        position={markerPosition}
+                        title="UB Propertiz LLC"
+                      />
+                    </GoogleMap>
+                  </LoadScript>
+                </div>
               </div>
             </div>
           </div>
