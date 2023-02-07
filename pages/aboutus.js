@@ -128,6 +128,6 @@ export const getStaticProps = async () => {
     props: {
       agents,
     },
-    revalidate: false,
+    revalidate: 3600,
   };
 };
